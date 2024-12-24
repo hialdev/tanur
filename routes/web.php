@@ -39,7 +39,7 @@ Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showRese
 //Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 //Route::post('/register', [RegisterController::class, 'register']);
 
-Auth::routes();
+//Auth::routes();
 // -------------- End Auth Routes ----------------
 
 // -------------- Unauthenticated routes ------------------

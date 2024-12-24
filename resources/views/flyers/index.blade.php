@@ -152,7 +152,7 @@
                                             </li>
                                             <li>
                                                 <button type="button" class="dropdown-item d-flex align-items-center gap-3"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"><i
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModal-{{$flyer->id}}"><i
                                                         class="fs-4 ti ti-trash"></i>Delete</button>
                                             </li>
                                         </ul>
@@ -194,7 +194,7 @@
                                     </div>
 
                                     <!-- Delete Modal -->
-                                    <div id="deleteModal" class="modal fade" tabindex="-1"
+                                    <div id="deleteModal-{{$flyer->id}}" class="modal fade" tabindex="-1"
                                         aria-labelledby="danger-header-modalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                             <div class="modal-content p-3 modal-filled bg-danger">
