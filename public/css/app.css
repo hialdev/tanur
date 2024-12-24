@@ -1,0 +1,30 @@
+.al-primary{
+  color: #007474 !important;
+}
+
+.btn-al-primary{
+  background-color: #007474 !important;
+  border-color: #007474 !important;
+  color: #fff;
+}
+.btn-al-primary:hover{
+  background-color: #149797 !important;
+  border: #149797 !important;
+  color: #fff;
+}
+
+.line-clamp.line-clamp-2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line-clamp.line-clamp-3{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
