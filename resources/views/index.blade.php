@@ -353,7 +353,7 @@
             <h2>{{setting('title.partner')}}</h2>
             <hr class="divider">
             <div>
-                <img src="./src/images/partner.png" alt="Partner Logo" class="d-block w-100">
+                <img src="{{Voyager::image(setting('content.partner_image'))}}" alt="Partner Logo" class="d-block w-100">
             </div>
         </div>
     </section>
@@ -363,21 +363,20 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3">
-                    <img src="./src/images/appmockup.png" alt="MockUp App" class="d-block w-100">
+                    <img src="{{Voyager::image(setting('content.app_image'))}}" alt="MockUp App" class="d-block w-100">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <h3 class="fs-1 tanur-dark">Daftar Umroh
-                        semakin mudah
-                        via Aplikasi
+                    <h3 class="fs-1 tanur-dark">
+                        {{setting('content.app_title')}}
                     </h3>
                     <div class="fs-2 tanur-green">
-                        Fitur Aplikasi Agen & Jamaah Tanur Muthmainnah Tour
+                        {{setting('content.app_subtitle')}}
                     </div>
                     <hr class="divider">
                     <div class="d-flex align-items-center gap-3">
-                        <a href=""><img src="./src/images/googleplay.png" alt="GP" class="d-block w-100"
+                        <a href="{{url(setting('content.app_gplay'))}}"><img src="./src/images/googleplay.png" alt="GP" class="d-block w-100"
                                 style="height:3em;"></a>
-                        <a href=""><img src="./src/images/appstore.png" alt="App Store" class="d-block w-100"
+                        <a href="{{url(setting('content.app_appstore'))}}"><img src="./src/images/appstore.png" alt="App Store" class="d-block w-100"
                                 style="height:3em;"></a>
                     </div>
                 </div>
