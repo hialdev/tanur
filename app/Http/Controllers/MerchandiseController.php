@@ -24,7 +24,7 @@ class MerchandiseController extends Controller
             'title' => "Merchandise Tanur Muthmainnah",
         ];
 
-        return view('merchandise.index', compact('seoeb', 'merchandises', 'merchJumbotrons', 'filter'));
+        return view('merchandise.index', compact('seo', 'merchandises', 'merchJumbotrons', 'filter'));
     }
 
     public function show($slug){
@@ -34,6 +34,6 @@ class MerchandiseController extends Controller
             'title' => "$merch->title - Merchandise Tanur Muthmainnah",
             "image" => Voyager::image($merch->image),
         ];
-        return view('merchandise.show', compact('seoeb', 'merch', 'reccomend_merchs'));
+        return view('merchandise.show', compact('seo', 'merch', 'reccomend_merchs'));
     }
 }
