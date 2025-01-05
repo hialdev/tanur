@@ -1,0 +1,233 @@
+body {
+  overflow-x: hidden;
+}
+
+.line-clamp.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line-clamp.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tanur-coklat {
+  color: #c3932d;
+}
+
+.border-coklat {
+  border-color: #c3932d !important;
+}
+
+.tanur-dark {
+  color: #132F57;
+}
+
+.tanur-green {
+  color: #166862;
+}
+
+.bg-tanur-green {
+  background-color: #166862 !important;
+  color: #fff !important;
+}
+
+.bg-gradient-green {
+  background: radial-gradient(184.54% 77.95% at 111.54% 7.3%, #007473 0%, #132F57 100%);
+}
+
+.bg-radial-coklat {
+  background: radial-gradient(60.68% 97.87% at 50% 50%, #FFE89B 0%, #C5A25D 70%, #877440 100%);
+}
+
+.bg-radial-coklat-tua {
+  background: radial-gradient(62.24% 113.19% at 120% 33.76%, #F0D68B 0%, #BCA565 33.23%, #917C45 100%);
+}
+
+.arrow-rotate {
+  rotate: 90deg !important;
+}
+
+.divider {
+  height: 5px;
+  background-color: #c3932d;
+  width: 2em;
+  outline: none;
+  border: none;
+  opacity: 1;
+  border-radius: 99px;
+}
+
+.whatsapp-icon {
+  animation: whatsapp-animation 3s infinite;
+}
+
+@keyframes whatsapp-animation {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(0.9);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  40% {
+    transform: scale(1);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  90% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-container .menu-open-button, .menu-container .menu-close-button {
+  cursor: pointer;
+}
+.menu-container .menu-box {
+  display: flex;
+  align-items: center;
+  gap: 1.8em;
+}
+@media (max-width: 768px) {
+  .menu-container .menu-box {
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2em;
+    position: fixed;
+    background-color: #e7f7f6;
+    width: 80%;
+    min-width: 20em;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    gap: 1em;
+  }
+}
+.menu-container .menu-box .menu-item {
+  color: #212121;
+  position: relative;
+  padding-bottom: 10px;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.menu-container .menu-box .menu-item:hover {
+  color: #166862;
+}
+.menu-container .menu-box .menu-item:hover::before {
+  content: "";
+  height: 3px;
+  width: 1.5em;
+  background-color: #166862;
+  position: absolute;
+  bottom: 0;
+  border-radius: 20px;
+  transition: width 0.3s ease-in-out;
+}
+@media (max-width: 768px) {
+  .menu-container .menu-box .menu-item:hover::before {
+    right: 0;
+  }
+}
+.menu-container .menu-box .menu-item.active {
+  color: #166862;
+}
+.menu-container .menu-box .menu-item.active::before {
+  content: "";
+  height: 3px;
+  width: 1.5em;
+  background-color: #166862;
+  position: absolute;
+  bottom: 0;
+  border-radius: 20px;
+  transition: width 0.3s ease-in-out;
+}
+@media (max-width: 768px) {
+  .menu-container .menu-box .menu-item.active::before {
+    right: 0;
+  }
+}
+.menu-container .menu-box .menu-item.has-dropdown .menu-dropdown-box {
+  background-color: #fff;
+  position: absolute;
+  top: 10;
+  min-width: 7em;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .menu-container .menu-box .menu-item.has-dropdown .menu-dropdown-box {
+    position: relative;
+  }
+}
+.menu-container .menu-box .menu-item.has-dropdown .menu-dropdown-item {
+  font-size: 14px;
+}
+.menu-container .menu-box .menu-item.has-dropdown .menu-dropdown-item a {
+  color: #166862 !important;
+  white-space: nowrap;
+}
+.menu-container .menu-box .menu-item.has-dropdown .menu-dropdown-item:hover {
+  background-color: #166862;
+}
+.menu-container .menu-box .menu-item.has-dropdown .menu-dropdown-item:hover a {
+  color: #fff !important;
+}
+.menu-container .menu-box .menu-item.has-dropdown:hover::before {
+  width: 0px;
+}
+.menu-container .menu-box.active {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+@media (max-width: 768px) {
+  .menu-container .menu-box {
+    transform: translateX(100%);
+  }
+}
+@media (max-width: 768px) {
+  .menu-container {
+    position: relative;
+  }
+}
+
+.custom-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.custom-dots .owl-dot {
+  outline: none;
+  border: none;
+  height: 10px;
+  width: 1em;
+  border-radius: 15px;
+  border: 2px solid #c3932d !important;
+  background: transparent;
+}
+.custom-dots .owl-dot.active {
+  background: #c3932d;
+  width: 3em;
+  border-color: #c3932d;
+}/*# sourceMappingURL=style.css.map */

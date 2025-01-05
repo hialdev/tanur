@@ -1,0 +1,310 @@
+// Define Bootstrap 5.3 breakpoints
+$breakpoints: (
+  xs: 0,        // Extra small
+  sm: 576px,    // Small
+  md: 768px,    // Medium
+  lg: 992px,    // Large
+  xl: 1200px,   // Extra large
+  xxl: 1400px   // Extra extra large
+);
+
+// Mixin untuk media query
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $min-width: map-get($breakpoints, $breakpoint);
+    @media (min-width: #{$min-width}) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoint: `#{$breakpoint}`.";
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $max-width: map-get($breakpoints, $breakpoint);
+    @media (max-width: #{$max-width}) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoint: `#{$breakpoint}`.";
+  }
+}
+
+@mixin media-breakpoint-between($breakpoint-lower, $breakpoint-upper) {
+  @if map-has-key($breakpoints, $breakpoint-lower) and map-has-key($breakpoints, $breakpoint-upper) {
+    $min-width: map-get($breakpoints, $breakpoint-lower);
+    $max-width: map-get($breakpoints, $breakpoint-upper);
+    @media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoints: `#{$breakpoint-lower}` or `#{$breakpoint-upper}`.";
+  }
+}
+
+// Custom mixin example for exact range
+@mixin media-breakpoint-only($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $min-width: map-get($breakpoints, $breakpoint);
+    $breakpoints-list: map-keys($breakpoints);
+    $breakpoint-index: index($breakpoints-list, $breakpoint);
+
+    @if $breakpoint-index < length($breakpoints-list) {
+      $next-breakpoint: nth($breakpoints-list, $breakpoint-index + 1);
+      $max-width: map-get($breakpoints, $next-breakpoint);
+      @media (min-width: #{$min-width}) and (max-width: #{($max-width - 0.02px)}) {
+        @content;
+      }
+    } @else {
+      // For the last breakpoint, only use min-width
+      @media (min-width: #{$min-width}) {
+        @content;
+      }
+    }
+  } @else {
+    @error "Invalid breakpoint: `#{$breakpoint}`.";
+  }
+}
+
+// -----------------------------------
+
+$darkColor : #132F57;
+$mainColor : #166862;
+$secColor : #c3932d;
+// -----------------------------------
+body{
+  overflow-x: hidden;
+}
+.line-clamp.line-clamp-2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line-clamp.line-clamp-3{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tanur-coklat{
+  color: $secColor;
+}
+
+.border-coklat{
+  border-color: $secColor !important;
+}
+
+.tanur-dark{
+  color: $darkColor;
+}
+.tanur-green{
+  color: $mainColor;
+}
+.bg-tanur-green{
+  background-color: #166862 !important;
+  color: #fff !important;
+}
+.bg-gradient-green{
+  background: radial-gradient(184.54% 77.95% at 111.54% 7.3%, #007473 0%, #132F57 100%);
+}
+.bg-radial-coklat{
+  background: radial-gradient(60.68% 97.87% at 50% 50%, #FFE89B 0%, #C5A25D 70%, #877440 100%);
+}
+.bg-radial-coklat-tua{
+  background: radial-gradient(62.24% 113.19% at 120% 33.76%, #F0D68B 0%, #BCA565 33.23%, #917C45 100%);
+}
+
+.arrow-rotate{
+  rotate: 90deg !important;
+}
+.divider{
+  height:5px;
+  background-color: #c3932d;
+  width: 2em;
+  outline: none;
+  border: none;
+  opacity: 1;
+  border-radius: 99px;
+}
+
+.whatsapp-icon {
+    animation: whatsapp-animation 3s infinite;
+}
+
+@keyframes whatsapp-animation {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.1);
+    }
+    20% {
+        transform: scale(0.9);
+    }
+    30% {
+        transform: scale(1.05);
+    }
+    40% {
+        transform: scale(1);
+    }
+    70% {
+        transform: rotate(0deg);
+    }
+    80% {
+        transform: rotate(-10deg);
+    }
+    90% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.menu-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .menu-open-button, .menu-close-button{
+    cursor: pointer;
+  }
+
+  .menu-box {
+    display: flex; // Default: horizontal layout
+    //justify-content: space-between;
+    align-items: center;
+    gap: 1.8em;
+
+    // Responsive untuk layar md ke bawah
+    @include media-breakpoint-down(md) {
+      flex-direction: column; // Ganti ke column layout
+      align-items: flex-end;
+      padding: 2em;
+      position: fixed;
+      background-color: #e7f7f6;
+      width: 80%;
+      min-width: 20em;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      gap: 1em;
+    }
+
+    .menu-item {
+      color: #212121;
+      position: relative;
+      padding-bottom: 10px;
+      transition: color 0.3s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        color: $mainColor;
+
+        &::before {
+          content: '';
+          height: 3px;
+          width: 1.5em;
+          background-color: $mainColor;
+          position: absolute;
+          bottom: 0;
+          border-radius: 20px;
+          transition: width 0.3s ease-in-out;
+          @include media-breakpoint-down(md) {
+            right: 0;
+          } 
+        }
+      }
+
+      // Active state untuk item menu
+      &.active {
+        color: $mainColor;
+        &::before {
+          content: '';
+          height: 3px;
+          width: 1.5em;
+          background-color: $mainColor;
+          position: absolute;
+          bottom: 0;
+          border-radius: 20px;
+          transition: width 0.3s ease-in-out;
+          @include media-breakpoint-down(md) {
+            right: 0;
+          } // Highlight penuh untuk active item
+        }
+      }
+
+      &.has-dropdown{
+        .menu-dropdown-box{
+          background-color: #fff;
+          position: absolute;
+          top: 10;
+          min-width: 7em;
+          overflow: hidden;
+          @include media-breakpoint-down(md) {
+            position: relative;
+          }
+        }
+
+        .menu-dropdown-item {
+          font-size: 14px;
+          a{
+            color: $mainColor !important;
+            white-space: nowrap;
+          }
+          &:hover{
+            background-color: #166862;
+            a{
+              color:#fff !important
+            }
+          }
+        }
+
+        &:hover::before{
+          width: 0px;
+        }
+      }
+    }
+
+    // Animasi transisi untuk menu navigasi
+    &.active {
+      transform: translateX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    // Default posisi di luar layar untuk menu navigasi
+    @include media-breakpoint-down(md) {
+      transform: translateX(100%);
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    position: relative;
+  }
+}
+
+.custom-dots{
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  .owl-dot{
+    outline: none;
+    border: none;
+    height: 10px;
+    width: 1em;
+    border-radius: 15px;
+    border: 2px solid $secColor !important;
+    background: transparent;
+    &.active{
+      background: $secColor;
+      width: 3em;
+      border-color: $secColor;
+    }
+  }
+}
