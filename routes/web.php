@@ -31,6 +31,6 @@ Route::get('/package/{slug}', [PackageController::class, 'show'])->name('package
 Route::get('/merchandise', [MerchandiseController::class, 'index'])->name('merchandise.index');
 Route::get('/merchandise/{slug}', [MerchandiseController::class, 'show'])->name('merchandise.show');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'assalamualaikum'], function () {
     Voyager::routes();
 });
