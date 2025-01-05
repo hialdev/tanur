@@ -12,7 +12,7 @@
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="{{env('APP_URL')}}/src/css/style.css">
     @yield('css')
 </head>
 <body>
@@ -67,7 +67,7 @@
         @yield('content')
     </main>
     <a href="{{\App\Helpers\GeneralHelper::waLink('Hallo Tanur Muthmainnah, Saya ingin bertanya seputar haji dan umroh')}}" style="display: inline-block; z-index: 9999" class="whatsapp-icon text-decoration-none position-fixed bottom-0 end-0">
-      <img src="/src/images/wa-cta.png" alt="Whatsapp Chat Admin" style="width: 6em">
+      <img src="{{env('APP_URL')}}/src/images/wa-cta.png" alt="Whatsapp Chat Admin" style="width: 6em">
     </a>
     <footer style="background: radial-gradient(184.54% 77.95% at 111.54% 7.3%, #007473 0%, #132F57 100%);">
       <div class="container py-5">
@@ -103,12 +103,12 @@
               </li>
             </ul>
             <div class="d-inline-flex bg-white align-items-center p-2 px-3 gap-3 rounded-5 my-4">
-              <img src="/src/images/5umrah.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="/src/images/himpuh.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="/src/images/IATAlogo.svg" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="/src/images/kan.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="/src/images/kemenag.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="/src/images/Sucofindo.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/5umrah.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/himpuh.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/IATAlogo.svg" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/kan.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/kemenag.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/Sucofindo.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
             </div>
           </div>
           <div class="col-md-3">
@@ -174,8 +174,8 @@
     <!-- Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-    <script src="/src/js/script.js"></script>
-    <script src="/src/js/carousel.js"></script>
+    <script src="{{env('APP_URL')}}/src/js/script.js"></script>
+    <script src="{{env('APP_URL')}}/src/js/carousel.js"></script>
     @yield('scripts')    
 </body>
 </html>
