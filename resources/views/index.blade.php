@@ -45,9 +45,18 @@
     <section class="bg-tanur-green">
         <div class="container-fluid">
             <div class="bg-tanur-green p-2">
-                <marquee>Umrah dan Haji terbaik adalah yang apabila dikerjakan hanya dengan niat menggapai ridho Allah •
-                    Atas
-                    izin Alah Tanur Muthmainnah menjadi Travel terbaik untuk ibadah anda</marquee>
+                <marquee>
+                    <div class="d-flex align-items-center gap-4 fs-5">
+                        @foreach ( $runnings as $running)
+                        <div>{{$running->teks}}</div>
+                        @if($loop->index != count($runnings) - 1)
+                        <div>
+                            <img src="{{Voyager::image(setting('site.logo_putih'))}}" alt="Logo Divider {{$loop->index}}" class="d-block" style="height: 2em; object-fit:contain;">
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </marquee>
             </div>
         </div>
     </section>
@@ -61,13 +70,13 @@
                     <div class="weather-box">
                         <div class="row">
                             <div class="col-lg-6 mb-3">
-                                <a class="rounded-4 weatherwidget-io" href="https://forecast7.com/en/21d3939d86/mecca/" data-label_1="Makkah Al Mukarramah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="5" data-theme="weather_one" >Makkah Al Mukarramah Cuaca</a>
+                                <a class="rounded-4 weatherwidget-io" href="https://forecast7.com/en/21d3939d86/mecca/" data-label_1="Makkah Al Mukarramah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Makkah Al Mukarramah Cuaca</a>
                                 <script>
                                 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
                                 </script>
                             </div>
                             <div class="col-lg-6 mb-3">
-                                <a class="rounded-4 weatherwidget-io" href="https://forecast7.com/en/24d5239d57/medina/" data-label_1="Madinah Al Munawarah" data-label_2="Cuaca" data-font="Helvetica" data-icons="Climacons Animated" data-days="5" data-theme="weather_one" >Madinah Al Munawarah Cuaca</a>
+                                <a class="rounded-4 weatherwidget-io" href="https://forecast7.com/en/24d5239d57/medina/" data-label_1="Madinah Al Munawarah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Madinah Al Munawarah Cuaca</a>
                                 <script>
                                 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
                                 </script>
@@ -123,7 +132,7 @@
                     <hr class="divider">
                 </div>
                 @foreach ($values as $value)
-                <div class="col-md-6 col-lg-4 mb-3">
+                <div class="col-md-6 col-lg-4" style="margin-bottom: 4em">
                     <div class="p-5 h-100 bg-light position-relative border border-success rounded-4">
 
                         <div class="position-absolute top-0 start-0 end-0 d-flex align-items-center justify-content-center"

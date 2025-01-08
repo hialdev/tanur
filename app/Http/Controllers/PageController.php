@@ -41,9 +41,10 @@ class PageController extends Controller
         if ($packages->isEmpty()) {
             $packages = $packages->merge(Package::latest()->limit(5)->get());
         }
+        $runnings = \App\Models\Running::orderBy('urutan', 'asc')->get();
 
         return view('index', compact('meccaWeather', 'madinahWeather', 'meccaUpdated', 'madinahUpdated', 'excUpdated', 'kurs',
-                                     'jumbotrons', 'values', 'type_packages', 'facilities', 'featured_reviews', 'reviews', 'news', 'socmeds', 'packages'
+                                     'jumbotrons', 'values', 'type_packages', 'facilities', 'featured_reviews', 'reviews', 'news', 'socmeds', 'packages', 'runnings'
                                     ));
     }
 
@@ -55,7 +56,6 @@ class PageController extends Controller
             'title' => 'Tentang Tanur Muthmainnah',
         ];
         $timelines = Timeline::orderBy('date', 'ASC')->get();
-
         return view('about', compact('seo', 'timelines', 'values', 'legalitas', 'teams'));
     }
 
