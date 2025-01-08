@@ -20,11 +20,13 @@
                             style="height:100%; max-height: 85vh; object-fit:cover; aspect-ratio:16/9;">
                             <div class="container">
                                 <div class="row align-items-center">
-                                    <div class="col-md-6 order-last order-md-first">
+                                    <div class="col-6">
                                         <img src="{{Voyager::image($jumbotron->image)}}" alt="Image {{$jumbotron->title}}" class="d-block w-100">
                                     </div>
-                                    <div class="col-md-6">
-                                        <h2 class="fs-1">{{$jumbotron->title}}</h2>
+                                    <div class="col-6">
+                                        <h2 class="d-md-none fs-5">{{$jumbotron->title}}</h2>
+                                        <h2 class="d-none d-md-block d-lg-none fs-2 fs-2 fs-lg-1">{{$jumbotron->title}}</h2>
+                                        <h2 class="d-none d-lg-block fs-1">{{$jumbotron->title}}</h2>
                                     </div>
                                 </div>
                             </div>
