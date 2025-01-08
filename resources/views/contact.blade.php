@@ -18,7 +18,7 @@
         <div class="row">
           @foreach ($offices as $office)
           <div class="col-md-4 mb-3">
-            <div class="bg-white p-4 rounded-4 border border-success">
+            <div class="bg-white position-relative h-100 p-4 pb-5 rounded-4 border border-success">
               <div class="d-flex flex-column mb-3 align-items-center gap-2">
                 <div class="d-flex align-items-center justify-content-center p-1 rounded-circle bg-radial-coklat-tua text-white">
                   <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 16 16">
@@ -39,7 +39,7 @@
                     {{$office->address}}
                   </div>
                 </div>
-                <div class="mb-2 d-flex align-items-center gap-3">
+                <div class="mb-2 pb-2 d-flex align-items-center gap-3">
                   <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
                       <path fill="currentColor" fill-opacity="0" stroke="currentColor" stroke-dasharray="64" stroke-dashoffset="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z">
@@ -52,7 +52,7 @@
                     {{$office->telp}}
                   </div>
                 </div>
-                <a href="{{$office->gmap_link}}" class="btn mt-2 w-100 bg-gradient-green text-white">Lihat di Google Maps</a>
+                <a href="{{$office->gmap_link}}" class="btn position-absolute bottom-0 end-0 start-0 m-3 bg-gradient-green text-white">Lihat di Google Maps</a>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@
 
     // Gunakan tile layer default dari OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors <a href="https://hiamalif.com">by AL</a>',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> for <a href="#">Tanur</a>',
         maxZoom: 19
     }).addTo(map);
 

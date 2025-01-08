@@ -141,6 +141,21 @@ header.sticky-active img {
     animation: whatsapp-animation 3s infinite;
 }
 
+.package-item{
+  &:hover{
+    .package-content{
+      display: flex;
+      height: 100%;
+      opacity: 1;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  .package-content{
+    height: 0px;  
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+}
 @keyframes whatsapp-animation {
     0% {
         transform: scale(1);

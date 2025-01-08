@@ -30,7 +30,7 @@
   <div class="bg-light py-5" style="border-top: 1px solid #c3932d; border-bottom: 1px solid #c3932d">
     <div class="container">
       <form action="" class="d-flex flex-wrap align-items-end gap-2">
-          <div class="flex-grow-1 mb-2">
+          <div class="flex-grow-1">
             <div class="d-flex align-items-center gap-3 mb-2">
               <div class="d-flex align-items-center justify-content-center p-2 rounded-circle bg-tanur-green">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 256 256">
@@ -40,12 +40,12 @@
                   </g>
                 </svg>
               </div>
-              <div class="fw-bold">Judul / Deskripsi Berita</div>
+              <div class="fw-bold">Cari Berita</div>
             </div>
-            <input type="text" name="q" class="form-control border-coklat" placeholder="Cari Judul / Deskripsi Berita" value="{{$filter->q}}">
+            <input type="text" name="q" class="form-control border-coklat" placeholder="Cari Berita" value="{{$filter->q}}">
           </div>
           
-          <div class="flex-grow-1 mb-2">
+          <div class="flex-grow-1">
             <div class="d-flex align-items-center gap-3 mb-2">
               <div class="d-flex align-items-center justify-content-center p-2 rounded-circle bg-tanur-green">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24">

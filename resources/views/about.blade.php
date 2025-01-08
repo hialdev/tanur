@@ -119,7 +119,7 @@
                             {!! setting('about.sejarah_content') !!}
                         </div>
                     </div>
-                    <div class="col-12">
+                    {{-- <div class="col-12">
                         <h3>{{setting('title.timeline')}}</h3>
                         <hr class="divider">
                         @foreach ($timelines as $timeline)
@@ -154,7 +154,7 @@
                         <!--/row-->
                         @endforeach
                         
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -186,7 +186,7 @@
                                         style="width: 4em; height:4em; object-fit:contain;">
                                 </div>
                             </div>
-                            <p class="pt-3">
+                            <p class="pt-3 text-center">
                                 {{$value->description}}
                             </p>
                         </div>

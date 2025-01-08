@@ -45,7 +45,7 @@
     <section class="bg-tanur-green">
         <div class="container-fluid">
             <div class="bg-tanur-green p-2">
-                <marquee>
+                <marquee scrolldelay="{{setting('site.running_duration')}}">
                     <div class="d-flex align-items-center gap-4 fs-5">
                         @foreach ( $runnings as $running)
                         <div>{{$running->teks}}</div>
@@ -96,7 +96,7 @@
                             </div>
                             <div class="col-5">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="{{env('APP_URL')}}/src/images/saudi.webp" alt="Flag Arab Saudi" class="d-block shadow-sm rounded-2"
+                                    <img src="{{env('APP_URL')}}/src/images/saudi.png" alt="Flag Arab Saudi" class="d-block shadow-sm rounded-2"
                                         style="height:3em;object-fit:contain">
                                     <div class="fs-5 tanur-coklat fw-bold">SAR</div>
                                     <div class="fs-3">1 SAR</div>
@@ -143,7 +143,7 @@
                                     style="width: 4em; height:4em; object-fit:contain;">
                             </div>
                         </div>
-                        <p class="pt-3">
+                        <p class="pt-3 text-center">
                             {{$value->description}}
                         </p>
                     </div>
@@ -180,11 +180,11 @@
                     @else
                         @foreach ($packages as $package)
                         <div class="">
-                            <div class="position-relative rounded-4 overflow-hidden">
-                                <img src="{{Voyager::image($package->image)}}" alt="{{$package->title}}" style="aspect-ratio:3/4.8; object-fit:contain"  class="d-block w-100 object-fit-cover">
+                            <div class="position-relative rounded-4 overflow-hidden package-item">
+                                <img src="{{Voyager::image($package->image)}}" alt="{{$package->title}}" style="aspect-ratio:3/4.8; object-fit:contain" class="d-block w-100 object-fit-cover">
                                 <div
-                                    class="d-flex flex-column p-5 p-md-4 text-center align-items-center h-100 position-absolute top-0 end-0 start-0 bottom-0">
-                                    <a href="{{route('package.show', $package->slug)}}" class="btn btn-success bg-gradient-green text-white rounded-5 px-3 mt-auto">Lihat Detail Paket</a>
+                                    class="flex-column p-5 p-md-4 text-center align-items-center justify-content-center position-absolute end-0 start-0 bottom-0 package-content" style="background:#000000a1">
+                                    <a href="{{route('package.show', $package->slug)}}" class="btn btn-light rounded-5 px-3">Lihat Detail Paket</a>
                                 </div>
                             </div>
                         </div>

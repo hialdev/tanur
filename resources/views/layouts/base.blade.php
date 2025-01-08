@@ -52,9 +52,6 @@
                   <!-- Dropdown menu -->
                   <ul class="menu-dropdown-box mt-2 list-unstyled rounded-3 shadow">
                     <li class="menu-dropdown-item">
-                      <a href="{{ route('about') }}" class="text-decoration-none d-block p-2 px-3">Tentang Kami</a>
-                    </li>
-                    <li class="menu-dropdown-item">
                       <a href="{{ url('/about') . '#prakata' }}" class="text-decoration-none d-block p-2 px-3">Prakata</a>
                     </li>
                     <li class="menu-dropdown-item">
