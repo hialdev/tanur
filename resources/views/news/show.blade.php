@@ -9,7 +9,7 @@
           <span>/</span>
           <span>{{$news->title}}</span>
         </div>
-        <div class="tanur-green fw-semibold pb-3 border-bottom border-2 border-coklat mb-3">{{\Carbon\Carbon::parse($news->created_at)->format('d M Y')}}</div>
+        <div class="tanur-green fw-semibold pb-3 border-bottom border-coklat mb-3">{{\Carbon\Carbon::parse($news->created_at)->format('d M Y')}}</div>
         <h1 class="mb-3">{{$news->title}}</h1>
         <img src="{{Voyager::image($news->image)}}" alt="Image {{$news->title}} News" class="d-block w-100 rounded-4 mb-3" style="object-fit: cover; aspect-ratio:16/9">
         <div>
@@ -19,7 +19,7 @@
     </div>
   </div>
 </section>
-<section class="mb-4" style="border-top: 2px solid #c3932d; border-bottom: 2px solid #c3932d">
+<section class="mb-4" style="border-top: 1px solid #c3932d; border-bottom: 1px solid #c3932d">
   <div class="container py-5">
       <h2>Rekomendasi Berita</h2>
       <hr class="divider">

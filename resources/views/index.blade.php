@@ -87,7 +87,7 @@
                 <div class="col-lg-5 mb-3">
                     <h2>{{setting('title.currency')}}</h2>
                     <hr class="divider">
-                    <div class="currency-box bg-gradient-green text-white p-3 pb-4 rounded-4">
+                    <div class="currency-box text-white p-3 pb-4 rounded-4" style="background: linear-gradient(238deg, #00265A -23.62%, #44628C 58.84%, #007473 118.45%)">
                         <div class="row">
                             <div class="col-12 text-center">
                                 <div class="bg-radial-coklat-tua mb-2 text-white px-3 fw-semibold d-inline-flex mx-auto text-dark p-2 rounded-3">
@@ -96,7 +96,7 @@
                             </div>
                             <div class="col-5">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="./src/images/saudi.png" alt="" class="d-block shadow-sm rounded-2"
+                                    <img src="{{env('APP_URL')}}/src/images/saudi.webp" alt="Flag Arab Saudi" class="d-block shadow-sm rounded-2"
                                         style="height:3em;object-fit:contain">
                                     <div class="fs-5 tanur-coklat fw-bold">SAR</div>
                                     <div class="fs-3">1 SAR</div>
@@ -111,7 +111,7 @@
                             </div>
                             <div class="col-5">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="./src/images/indonesia.svg" alt="" class="d-block shadow-sm rounded-2"
+                                    <img src="{{env('APP_URL')}}/src/images/indonesia.svg" alt="" class="d-block shadow-sm rounded-2"
                                         style="height:3em;object-fit:contain">
                                     <div class="fs-5 tanur-coklat fw-bold">IDR</div>
                                     <div class="fs-3">{{$kurs}}</div>
@@ -184,7 +184,7 @@
                                 <img src="{{Voyager::image($package->image)}}" alt="{{$package->title}}" style="aspect-ratio:3/4.8; object-fit:contain"  class="d-block w-100 object-fit-cover">
                                 <div
                                     class="d-flex flex-column p-5 p-md-4 text-center align-items-center h-100 position-absolute top-0 end-0 start-0 bottom-0">
-                                    <a href="{{route('package.show', $package->slug)}}" class="btn btn-light rounded-5 px-3 mt-auto">Lihat Detail Paket</a>
+                                    <a href="{{route('package.show', $package->slug)}}" class="btn btn-success bg-gradient-green text-white rounded-5 px-3 mt-auto">Lihat Detail Paket</a>
                                 </div>
                             </div>
                         </div>
@@ -363,9 +363,9 @@
                     </div>
                     <hr class="divider">
                     <div class="d-flex align-items-center gap-3">
-                        <a href="{{url(setting('content.app_gplay'))}}"><img src="./src/images/googleplay.png" alt="GP" class="d-block w-100"
+                        <a href="{{url(setting('content.app_gplay'))}}"><img src="{{env('APP_URL')}}/src/images/googleplay.png" alt="GP" class="d-block w-100"
                                 style="height:3em;"></a>
-                        <a href="{{url(setting('content.app_appstore'))}}"><img src="./src/images/appstore.png" alt="App Store" class="d-block w-100"
+                        <a href="{{url(setting('content.app_appstore'))}}"><img src="{{env('APP_URL')}}/src/images/appstore.png" alt="App Store" class="d-block w-100"
                                 style="height:3em;"></a>
                     </div>
                 </div>

@@ -109,7 +109,7 @@
         
         <div class="">
             <div data-target="#fasilitas"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Fasilitas</h2>
                 <div class="tanur-green arrow">
@@ -130,7 +130,7 @@
 
         <div class="">
             <div data-target="#itinerary"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Itinerary</h2>
                 <div class="tanur-green arrow">
@@ -151,7 +151,7 @@
 
         <div class="">
             <div data-target="#persyaratan-peserta"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Persyaratan Peserta</h2>
                 <div class="tanur-green arrow">
@@ -172,7 +172,7 @@
 
         <div class="">
             <div data-target="#sk"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Syarat & Ketentuan</h2>
                 <div class="tanur-green arrow">
