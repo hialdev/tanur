@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('content')
 <section>
-  <div class="bg-light py-5" style="border-top: 2px solid #c3932d; border-bottom: 2px solid #c3932d">
+  <div class="bg-light py-5" style="border-top: 1px solid #c3932d; border-bottom: 1px solid #c3932d">
     <div class="container">
       <form action="" class="d-flex flex-wrap align-items-end gap-2">
           <div class="flex-grow-1 mb-2">
@@ -14,28 +14,9 @@
                   </g>
                 </svg>
               </div>
-              <div class="fw-bold">Cari Nama Paket</div>
+              <div class="fw-bold">Cari Paket</div>
             </div>
-            <input type="text" name="q" class="form-control border-coklat" placeholder="Nama Paket" value="{{$filter->q}}">
-          </div>
-          
-          <div class="flex-grow-1 mb-2">
-            <div class="d-flex align-items-center gap-3 mb-2">
-              <div class="d-flex align-items-center justify-content-center p-2 rounded-circle bg-tanur-green">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M6.94 2c.416 0 .753.324.753.724v1.46c.668-.012 1.417-.012 2.26-.012h4.015c.842 0 1.591 0 2.259.013v-1.46c0-.4.337-.725.753-.725s.753.324.753.724V4.25c1.445.111 2.394.384 3.09 1.055c.698.67.982 1.582 1.097 2.972L22 9H2v-.724c.116-1.39.4-2.302 1.097-2.972s1.645-.944 3.09-1.055V2.724c0-.4.337-.724.753-.724" />
-                  <path fill="currentColor" d="M22 14v-2c0-.839-.004-2.335-.017-3H2.01c-.013.665-.01 2.161-.01 3v2c0 3.771 0 5.657 1.172 6.828S6.228 22 10 22h4c3.77 0 5.656 0 6.828-1.172S22 17.772 22 14" opacity="0.5" />
-                  <path fill="currentColor" d="M18 17a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-5 4a1 1 0 1 1-2 0a1 1 0 0 1 2 0m0-4a1 1 0 1 1-2 0a1 1 0 0 1 2 0" />
-                </svg>
-              </div>
-              <div class="fw-bold">Total Hari</div>
-            </div>
-            <select name="total" id="total_days" class="form-select border border-coklat">
-              <option value="">-- Pilih Jumlah Hari --</option>
-              @foreach ($lamaHariOptions as $lh)
-                <option value="{{$lh}}" {{$lh == $filter->total ? 'selected' : ''}}>{{$lh}} hari</option>
-              @endforeach
-            </select>
+            <input type="text" name="q" class="form-control border-coklat" placeholder="Nama Paket / Hari / Harga / Bandara" value="{{$filter->q}}">
           </div>
 
           <div class="flex-grow-1 mb-2">
@@ -49,26 +30,9 @@
               <div class="fw-bold">Jenis Paket</div>
             </div>
             <select name="jenis" id="type_package" class="form-select border border-coklat">
-              <option value="">-- Pilih Jenis Paket --</option>
+              <option value="">-- Semua Jenis Paket --</option>
               @foreach ($typeOptions as $type)
                 <option value="{{$type->id}}" {{$type->id == $filter->jenis ? 'selected' : ''}}>{{$type->title}}</option>
-              @endforeach
-            </select>
-          </div>
-
-          <div class="flex-grow-1 mb-2">
-            <div class="d-flex align-items-center gap-3 mb-2">
-              <div class="d-flex align-items-center justify-content-center p-2 rounded-circle bg-tanur-green">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 20 20">
-                  <path fill="currentColor" d="M11.676 5.16a7 7 0 0 0-.377.327a2.1 2.1 0 0 1-.735.465L4.759 7.887l-.593-1.224a1.2 1.2 0 0 0-.245-.341c-.619-.596-1.745-.276-1.902.621A1.3 1.3 0 0 0 2 7.16v2.986A1.75 1.75 0 0 0 4.321 11.8l3.018-1.043l-.293 1.465c-.311 1.555 1.687 2.466 2.657 1.212l3.098-4.006l4.179-1.351c.838-.272 1.332-1.28.737-2.091c-.516-.706-1.425-1.689-2.663-1.93a3 3 0 0 0-.886-.04c-1.018.1-1.909.67-2.492 1.143m-2.562.22l-3.73 1.244l-.04-.05C4.532 5.523 5.28 4 6.605 4c.323 0 .637.097.903.28zM2.5 17a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1z" />
-                </svg>
-              </div>
-              <div class="fw-bold">Bandara</div>
-            </div>
-            <select name="bandara" id="bandara" class="form-select border border-coklat">
-              <option value="">-- Pilih Bandara --</option>
-              @foreach ($bandaraOptions as $bandara)
-                <option value="{{$bandara}}" {{$bandara == $filter->bandara ? 'selected' : ''}}>{{$bandara}}</option>
               @endforeach
             </select>
           </div>

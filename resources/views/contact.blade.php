@@ -11,7 +11,7 @@
 </style>
 @endsection
 @section('content')
-<section style="background: #d8dcdc">
+<section class="bg-light">
     <h1 class="d-none">Kontak - Hubungi Kami</h1>
     <div class="container py-5">
         <div id="map" class="mb-4"></div>
@@ -93,29 +93,29 @@
 @section('scripts')
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    // Inisialisasi peta
-    const map = L.map('map').setView([-2.548926, 118.0148634], 5);
+    const map = L.map('map').setView([-6.200000, 106.816666], 9);
 
-    // Gunakan tile layer dari CartoDB (hanya menampilkan daratan)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://hiamalif.com/">Hiamalif</a>',
-        subdomains: 'abcd',
+    // Gunakan tile layer default dari OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors <a href="https://hiamalif.com">by AL</a>',
         maxZoom: 19
     }).addTo(map);
 
     // Data kantor cabang
     const cabang = @json($offices);
     console.log(cabang);
+
     // Tambahkan marker untuk setiap kantor cabang
     cabang.forEach((item) => {
         const marker = L.marker([item.latitude, item.longitude]).addTo(map);
         const googleMapsLink = `https://www.google.com/maps?q=${item.latitude},${item.longitude}`;
         marker.bindPopup(`
           <div class="fs-5">${item.name}</div>
-          <p style="font-size:13px">Jl Mana Aja dah, Kreo Selatan, Larangan, Tangerang. 15156</p>
+          <p style="font-size:13px">${item.address}</p>
           <a class="btn btn-sm border-0 btn-success bg-radial-coklat-tua text-white" href="${googleMapsLink}" target="_blank">Buka di Google Maps</a>
         `);
     });
+
 
     document.getElementById('sendToWhatsApp').addEventListener('click', function() {
       const name = document.getElementById('name').value.trim();

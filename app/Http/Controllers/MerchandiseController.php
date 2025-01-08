@@ -10,6 +10,9 @@ use TCG\Voyager\Facades\Voyager;
 class MerchandiseController extends Controller
 {
     public function index(Request $request){
+        if(!setting('site.show_merchandise')){
+            return view('merchandise.comingsoon');
+        }
         $filter = (object) [
             'q' => $request->get('q') ?? '',
             'order' => $request->get('order') ?? 'desc',
@@ -28,6 +31,9 @@ class MerchandiseController extends Controller
     }
 
     public function show($slug){
+        if(!setting('site.show_merchandise')){
+            return view('merchandise.comingsoon');
+        }
         $merch = Merchandise::where('slug', $slug)->first();
         $reccomend_merchs = Merchandise::where('slug', '!=', $slug)->latest()->limit(5)->get();
         $seo = [

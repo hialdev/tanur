@@ -27,7 +27,7 @@
 </section>
 
 <section>
-  <div class="bg-light py-5" style="border-top: 2px solid #c3932d; border-bottom: 2px solid #c3932d">
+  <div class="bg-light py-5" style="border-top: 1px solid #c3932d; border-bottom: 1px solid #c3932d">
     <div class="container">
       <form action="" class="d-flex flex-wrap align-items-end gap-2">
           <div class="flex-grow-1 mb-2">

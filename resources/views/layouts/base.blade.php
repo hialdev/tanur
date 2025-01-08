@@ -16,12 +16,12 @@
     @yield('css')
 </head>
 <body>
-    <header class="py-1 bg-white position-relative" style="z-index: 9999999">
+    <header class="py-1 bg-white position-relative position-sticky top-0" style="z-index: 9999999">
         <div class="container">
             <div class="menu-container">
               <div>
                 <a href="{{route('home')}}" class="text-decoration-none d-block">
-                  <img src="{{Voyager::image(setting('site.logo'))}}" alt="Logo {{setting('site.title')}}" class="d-block" style="max-height: 4em">
+                  <img src="{{Voyager::image(setting('site.logo'))}}" alt="Logo {{setting('site.title')}}" class="d-block" style="height: 5.5em">
                 </a>
               </div>
               <div class="d-flex d-md-none menu-open-button align-items-center justify-content-center p-2">
@@ -36,26 +36,66 @@
                   </svg>
                 </div>
                 <a href="{{route('home')}}" class="menu-item text-decoration-none {{Route::is('home') ? 'active' : ''}}">Beranda</a>
-                <div class="menu-item text-decoration-none has-dropdown {{Route::is('about') ? 'active' : ''}}">
+                <div class="menu-item has-dropdown {{ Route::is('about') ? 'active' : '' }}">
                   <div class="d-flex align-items-center justify-content-between">
-                    <div class="me-3">
+                    <!-- Link utama "Tanur" yang mengarah ke /about -->
+                    <a href="{{ route('about') }}" class="d-block text-decoration-none me-3" style="color: currentColor !important">
                       Tanur
+                    </a>
+                    <!-- Ikon panah untuk toggle dropdown -->
+                    <div class="btn-dropdown">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="0.7em" height="0.7em" viewBox="0 0 1024 1024">
+                        <path fill="currentColor" d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496" />
+                      </svg>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="0.7em" height="0.7em" viewBox="0 0 1024 1024">
-                      <path fill="currentColor" d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496" />
-                    </svg>
                   </div>
+                  <!-- Dropdown menu -->
                   <ul class="menu-dropdown-box mt-2 list-unstyled rounded-3 shadow">
-                    <li class="menu-dropdown-item"><a href="{{route('about')}}" class="text-decoration-none d-block p-2 px-3">Tentang Kami</a></li>
-                    <li class="menu-dropdown-item"><a href="{{url('/about').'#prakata'}}" class="text-decoration-none d-block p-2 px-3">Prakata</a></li>
-                    <li class="menu-dropdown-item"><a href="{{url('/about').'#visi-misi'}}" class="text-decoration-none d-block p-2 px-3">Visi Misi</a></li>
-                    <li class="menu-dropdown-item"><a href="{{url('/about').'#sejarah'}}" class="text-decoration-none d-block p-2 px-3">Sejarah</a></li>
-                    <li class="menu-dropdown-item"><a href="{{url('/about').'#kenapa-tanur'}}" class="text-decoration-none d-block p-2 px-3">Mengapa Tanur</a></li>
-                    <li class="menu-dropdown-item"><a href="{{url('/about').'#legalitas'}}" class="text-decoration-none d-block p-2 px-3">Legalitas</a></li>
-                    <li class="menu-dropdown-item"><a href="{{url('/about').'#tim'}}" class="text-decoration-none d-block p-2 px-3">Tim</a></li>
+                    <li class="menu-dropdown-item">
+                      <a href="{{ route('about') }}" class="text-decoration-none d-block p-2 px-3">Tentang Kami</a>
+                    </li>
+                    <li class="menu-dropdown-item">
+                      <a href="{{ url('/about') . '#prakata' }}" class="text-decoration-none d-block p-2 px-3">Prakata</a>
+                    </li>
+                    <li class="menu-dropdown-item">
+                      <a href="{{ url('/about') . '#visi-misi' }}" class="text-decoration-none d-block p-2 px-3">Visi Misi</a>
+                    </li>
+                    <li class="menu-dropdown-item">
+                      <a href="{{ url('/about') . '#sejarah' }}" class="text-decoration-none d-block p-2 px-3">Sejarah</a>
+                    </li>
+                    <li class="menu-dropdown-item">
+                      <a href="{{ url('/about') . '#kenapa-tanur' }}" class="text-decoration-none d-block p-2 px-3">Mengapa Tanur</a>
+                    </li>
+                    <li class="menu-dropdown-item">
+                      <a href="{{ url('/about') . '#legalitas' }}" class="text-decoration-none d-block p-2 px-3">Legalitas</a>
+                    </li>
+                    <li class="menu-dropdown-item">
+                      <a href="{{ url('/about') . '#tim' }}" class="text-decoration-none d-block p-2 px-3">Tim</a>
+                    </li>
                   </ul>
                 </div>
-                <a href="{{route('package.index')}}" class="menu-item text-decoration-none {{Route::is('package.*') ? 'active' : ''}}">Paket</a>
+                <div class="menu-item has-dropdown {{ Route::is('package.*') ? 'active' : '' }}">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <!-- Link utama "Tanur" yang mengarah ke /about -->
+                    <a href="{{ route('package.index') }}" class="d-block text-decoration-none me-3" style="color: currentColor !important">
+                      Paket
+                    </a>
+                    <!-- Ikon panah untuk toggle dropdown -->
+                    <div class="btn-dropdown">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="0.7em" height="0.7em" viewBox="0 0 1024 1024">
+                        <path fill="currentColor" d="M104.704 338.752a64 64 0 0 1 90.496 0l316.8 316.8l316.8-316.8a64 64 0 0 1 90.496 90.496L557.248 791.296a64 64 0 0 1-90.496 0L104.704 429.248a64 64 0 0 1 0-90.496" />
+                      </svg>
+                    </div>
+                  </div>
+                  <!-- Dropdown menu -->
+                  <ul class="menu-dropdown-box mt-2 list-unstyled rounded-3 shadow">
+                    @foreach (\App\Models\PackageType::all() as $type)
+                      <li class="menu-dropdown-item">
+                      <a href="{{route('package.index', ['jenis' => $type->id])}}" class="text-decoration-none d-block p-2 px-3">{{$type->title}}</a>
+                    </li>
+                    @endforeach
+                  </ul>
+                </div>
                 <a href="{{route('news.index')}}" class="menu-item text-decoration-none {{Route::is('news.*') ? 'active' : ''}}">Berita</a>
                 <a href="{{route('merchandise.index')}}" class="menu-item text-decoration-none {{Route::is('merchandise.*') ? 'active' : ''}}">Merchandise</a>
                 <a href="{{route('contact')}}" class="menu-item text-decoration-none {{Route::is('contact') ? 'active' : ''}}">Kontak</a>
@@ -103,12 +143,12 @@
               </li>
             </ul>
             <div class="d-inline-flex bg-white align-items-center p-2 px-3 gap-3 rounded-5 my-4">
-              <img src="{{env('APP_URL')}}/src/images/5umrah.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="{{env('APP_URL')}}/src/images/himpuh.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="{{env('APP_URL')}}/src/images/IATAlogo.svg" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="{{env('APP_URL')}}/src/images/kan.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="{{env('APP_URL')}}/src/images/kemenag.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
-              <img src="{{env('APP_URL')}}/src/images/Sucofindo.png" alt="5 Umrah Logo" style="display: block; height: 2em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/5umrah.png" alt="5 Umrah Logo" style="display: block; height: 1.3em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/himpuh.png" alt="5 Umrah Logo" style="display: block; height: 1.3em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/IATAlogo.svg" alt="5 Umrah Logo" style="display: block; height: 1.3em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/kan.png" alt="5 Umrah Logo" style="display: block; height: 1.3em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/kemenag.png" alt="5 Umrah Logo" style="display: block; height: 1.3em; object-fit:contain">
+              <img src="{{env('APP_URL')}}/src/images/Sucofindo.png" alt="5 Umrah Logo" style="display: block; height: 1.3em; object-fit:contain">
             </div>
           </div>
           <div class="col-md-3">

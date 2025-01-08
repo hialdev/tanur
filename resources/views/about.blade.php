@@ -114,10 +114,46 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 mb-3">
                         <div class="bg-light p-5 rounded-4">
                             {!! setting('about.sejarah_content') !!}
                         </div>
+                    </div>
+                    <div class="col-12">
+                        <h3>{{setting('title.timeline')}}</h3>
+                        <hr class="divider">
+                        @foreach ($timelines as $timeline)
+                        <div class="row">
+                            <!-- timeline item 1 left dot -->
+                            <div class="col-auto text-center flex-column d-flex">
+                                <div class="row h-50">
+                                    <div class="col">&nbsp;</div>
+                                    <div class="col">&nbsp;</div>
+                                </div>
+                                <h5 class="m-2">
+                                    <span class="badge bg-primary bg-gradient-green border rounded-circle" style="aspect-ratio:1/1;">&nbsp;</span>
+                                </h5>
+                                <div class="row h-50">
+                                    <div class="col border-end border-primary border-coklat">&nbsp;</div>
+                                    <div class="col">&nbsp;</div>
+                                </div>
+                            </div>
+                            <!-- timeline item 1 event content -->
+                            <div class="col py-2">
+                                <div class="card p-0 border-0">
+                                    <div class="card-body p-0 py-2">
+                                        <div class="float-right text-muted">{{\Carbon\Carbon::parse($timeline->date)->format('d M Y')}}</div>
+                                        <h4 class="">{{$timeline->title}}</h4>
+                                        <div>
+                                            {!! $timeline->content !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/row-->
+                        @endforeach
+                        
                     </div>
                 </div>
             </div>
@@ -228,36 +264,41 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            // Semua accordion ditutup terlebih dahulu
-            $('.box-accordion').hide();
+            function handleHashChange() {
+                // Tutup semua accordion terlebih dahulu
+                $('.box-accordion').slideUp("slow");
+                $('.arrow').removeClass('arrow-rotate');
 
-            // Periksa apakah ada hash di URL
-            let hash = window.location.hash;
+                // Periksa apakah ada hash di URL
+                let hash = window.location.hash;
 
-            if (hash && $(hash).length) {
-                // Jika hash ditemukan dan sesuai dengan elemen accordion, buka elemen tersebut
-                $(hash).show();
-                $(`.button-accordion[data-target="${hash}"] .arrow`).addClass('arrow-rotate');
-            } else {
-                // Jika tidak ada hash, buka accordion pertama secara default
-                $('.box-accordion:first').show();
-                $('.button-accordion:first .arrow').addClass('arrow-rotate');
+                if (hash && $(hash).length) {
+                    // Jika hash ditemukan dan sesuai dengan elemen accordion, buka elemen tersebut
+                    $(hash).slideDown("slow");
+                    $(`.button-accordion[data-target="${hash}"] .arrow`).addClass('arrow-rotate');
+                } else {
+                    // Jika tidak ada hash, buka accordion pertama secara default
+                    $('.box-accordion:first').slideDown("slow");
+                    $('.button-accordion:first .arrow').addClass('arrow-rotate');
+                }
             }
+
+            // Panggil handleHashChange saat halaman dimuat
+            handleHashChange();
+
+            // Tambahkan event listener untuk hashchange
+            $(window).on('hashchange', function() {
+                handleHashChange();
+            });
 
             // Tambahkan event listener untuk klik pada button accordion
             $(".button-accordion").click(function() {
                 let target = $(this).data("target");
 
-                // Tutup semua accordion
-                $('.box-accordion').slideUp("slow");
-                $('.arrow').removeClass('arrow-rotate');
-
-                if ($(target).is(":hidden")) {
-                    // Jika accordion yang diklik tertutup, buka dan tambahkan efek
-                    $(target).slideDown("slow");
-                    $(this).find('.arrow').addClass('arrow-rotate');
-                }
+                // Perbarui hash di URL tanpa reload halaman
+                window.location.hash = target;
             });
         });
+
     </script>
 @endsection

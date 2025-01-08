@@ -186,11 +186,11 @@ $('.merchandise-reccomend-carousel').owlCarousel({
 $('.testimonial-general-carousel').owlCarousel({
     loop:true,
     lazyLoad: true,
-    margin:10,
+    margin:20,
     nav:false,
     dots:false,
     autoplay:true,
-    autoplayTimeout:4000,
+    autoplayTimeout:6000,
     autoplayHoverPause:false,
     items:2,
     responsive:{
@@ -207,10 +207,10 @@ $('.testimonial-general-carousel').owlCarousel({
             items: 2, // Tablet lanskap atau layar kecil
         },
         1280: {
-            items: 2, // Laptop atau layar sedang
+            items: 3, // Laptop atau layar sedang
         },
         1440: {
-            items: 2, // Layar desktop besar
+            items: 3, // Layar desktop besar
         },
         1920: {
             items: 3, // Layar ultra-wide

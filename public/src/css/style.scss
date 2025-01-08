@@ -76,6 +76,10 @@ $secColor : #c3932d;
 body{
   overflow-x: hidden;
 }
+header.sticky-active img {
+    height: 4em;
+}
+
 .line-clamp.line-clamp-2{
   display: -webkit-box;
   -webkit-box-orient: vertical;
