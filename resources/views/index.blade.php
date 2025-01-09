@@ -68,7 +68,7 @@
                     <h2>{{setting('title.weather')}}</h2>
                     <hr class="divider">
                     <div class="weather-box">
-                        <div class="rounded-4 bg-light text-white overflow-hidden">
+                        <div class="rounded-4 bg-light text-white overflow-hidden" style="height:15.5em;">
                             <div class="row align-items-center gap-0">
                                 <div class="col-sm-6 p-0">
                                     <a class="weatherwidget-io w-100" href="https://forecast7.com/en/21d3939d86/mecca/" data-label_1="Makkah Al Mukarramah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Makkah Al Mukarramah Cuaca</a>
@@ -83,12 +83,10 @@
                                     </script>
                                 </div>
                             </div>
-                            <div class="p-2 px-3 tanur-green d-flex align-items-center justify-content-between">
+                            <div class="p-2 px-3 tanur-green d-flex align-items-center gap-3 justify-content-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 48 48"><defs><mask id="ipSTime0"><g fill="none" stroke-linejoin="round" stroke-width="4"><path fill="#fff" stroke="#fff" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path stroke="#000" stroke-linecap="round" d="M24.008 12v12.01l8.479 8.48"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSTime0)"/></svg>
                                 <div class="uea-date">Day, 01 Jan 2025</div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 48 48"><defs><mask id="ipSTime0"><g fill="none" stroke-linejoin="round" stroke-width="4"><path fill="#fff" stroke="#fff" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path stroke="#000" stroke-linecap="round" d="M24.008 12v12.01l8.479 8.48"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSTime0)"/></svg>
-                                    <div class="uea-time">18:22</div>
-                                </div>
+                                <div class="uea-time">18:22</div>
                             </div>
                         </div>
                     </div>
@@ -96,7 +94,7 @@
                 <div class="col-lg-5 mb-3">
                     <h2>{{setting('title.currency')}}</h2>
                     <hr class="divider">
-                    <div class="currency-box text-white py-5 pt-4 rounded-4" style="background: linear-gradient(238deg, #00265A -23.62%, #44628C 58.84%, #007473 118.45%)">
+                    <div class="currency-box text-white py-5 pt-4 rounded-4" style="background: linear-gradient(238deg, #00265A -23.62%, #44628C 58.84%, #007473 118.45%); height:15.5em">
                         <div class="row">
                             <div class="col-12 text-center">
                                 <div class="bg-radial-coklat-tua mb-2 text-white px-3 fw-semibold d-inline-flex mx-auto text-dark p-2 rounded-3">
