@@ -32,10 +32,10 @@
         <h6>Beli Merchandise ini di</h6>
         <div class="d-flex align-items-center rounded-3 overflow-hidden justify-content-around w-100 mt-2">
           <a href="{{url($merch->tokopedia_link)}}" class="{{$merch->tokopedia_link ? '' : 'd-none'}} flex-grow-1 text-decoration-none d-flex gap-2 align-items-center btn btn-light rounded-0 justify-content-center" style="background:#27cd7d">
-            <img src="/src/images/icon/tokopedia.png" alt="tokopedia" class="d-block" style="max-height: 1.5em"> Tokopedia
+            <img src="{{env('APP_URL')}}/src/images/icon/tokopedia.png" alt="tokopedia" class="d-block" style="max-height: 1.5em"> Tokopedia
           </a>
           <a href="{{url($merch->shopee_link)}}" class="{{$merch->shopee_link ? '' : 'd-none'}} flex-grow-1 text-decoration-none d-flex gap-2 align-items-center btn btn-light rounded-0 justify-content-center" style="background:#ffbc65">
-            <img src="/src/images/icon/shopee.png" alt="Shopee" class="d-block" style="max-height: 1.5em"> Shopee
+            <img src="{{env('APP_URL')}}/src/images/icon/shopee.png" alt="Shopee" class="d-block" style="max-height: 1.5em"> Shopee
           </a>
           <a href="{{url($merch->tiktok_link)}}" class="{{$merch->tiktok_link ? '' : 'd-none'}} flex-grow-1 text-decoration-none d-flex gap-2 align-items-center btn btn-light rounded-0 justify-content-center" style="">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.5em" viewBox="0 0 256 290">
@@ -68,10 +68,10 @@
             <div class="fw-bold tanur-green">{{\App\Helpers\GeneralHelper::formatRupiah($rmerch->price)}}</div>
             <div class="d-flex align-items-center rounded-3 overflow-hidden justify-content-around w-100 mt-2">
               <a href="{{url($rmerch->tokopedia_link)}}" class="{{$rmerch->tokopedia_link ? : 'd-none'}} flex-grow-1 text-decoration-none d-flex align-items-center btn btn-light rounded-0 justify-content-center" style="">
-                <img src="/src/images/icon/tokopedia.png" alt="tokopedia" class="d-block" style="max-height: 1.5em; object-fit:contain">
+                <img src="{{env('APP_URL')}}/src/images/icon/tokopedia.png" alt="tokopedia" class="d-block" style="max-height: 1.5em; object-fit:contain">
               </a>
               <a href="{{url($rmerch->shopee_link)}}" class="{{$rmerch->shopee_link ? : 'd-none'}} flex-grow-1 text-decoration-none d-flex align-items-center btn btn-light rounded-0 justify-content-center" style="">
-                <img src="/src/images/icon/shopee.png" alt="Shopee" class="d-block" style="max-height: 1.5em; object-fit:contain">
+                <img src="{{env('APP_URL')}}/src/images/icon/shopee.png" alt="Shopee" class="d-block" style="max-height: 1.5em; object-fit:contain">
               </a>
               <a href="{{url($rmerch->tiktok_link)}}" class="{{$rmerch->tiktok_link ? : 'd-none'}} flex-grow-1 text-decoration-none d-flex align-items-center btn btn-light rounded-0 justify-content-center" style="">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.5em" viewBox="0 0 256 290">
