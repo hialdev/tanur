@@ -22,10 +22,6 @@ class PageController extends Controller
 {
     public function index(){
         $helper = new GeneralHelper();
-        $meccaWeather = $helper->getWeather('mecca');
-        $madinahWeather = $helper->getWeather('medina');
-        $meccaUpdated = $helper->getLastUpdated('weather_mecca');
-        $madinahUpdated = $helper->getLastUpdated('weather_medina');
         $excUpdated = $helper->getLastUpdated('exchange_rate_SAR_to_IDR');
         $kurs = $helper->getExchangeRate('SAR','IDR');
 
@@ -43,7 +39,7 @@ class PageController extends Controller
         }
         $runnings = \App\Models\Running::orderBy('urutan', 'asc')->get();
 
-        return view('index', compact('meccaWeather', 'madinahWeather', 'meccaUpdated', 'madinahUpdated', 'excUpdated', 'kurs',
+        return view('index', compact('excUpdated', 'kurs',
                                      'jumbotrons', 'values', 'type_packages', 'facilities', 'featured_reviews', 'reviews', 'news', 'socmeds', 'packages', 'runnings'
                                     ));
     }

@@ -100,6 +100,10 @@ header.sticky-active img {
   color: $secColor;
 }
 
+.tanur-blue, .tanur-dark{
+  color: #132F57 !important;
+}
+
 .border-coklat{
   border-color: $secColor !important;
 }
@@ -112,6 +116,10 @@ header.sticky-active img {
 }
 .bg-tanur-green{
   background-color: #166862 !important;
+  color: #fff !important;
+}
+.bg-tanur-coklat{
+  background-color: $secColor !important;
   color: #fff !important;
 }
 .bg-gradient-green{

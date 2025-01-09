@@ -70,16 +70,28 @@
                     <div class="weather-box">
                         <div class="row">
                             <div class="col-lg-6 mb-3">
-                                <a class="rounded-4 weatherwidget-io" href="https://forecast7.com/en/21d3939d86/mecca/" data-label_1="Makkah Al Mukarramah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Makkah Al Mukarramah Cuaca</a>
-                                <script>
-                                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                                </script>
+                                <div class="rounded-4 bg-tanur-coklat text-white overflow-hidden">
+                                    <a class="weatherwidget-io" href="https://forecast7.com/en/21d3939d86/mecca/" data-label_1="Makkah Al Mukarramah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Makkah Al Mukarramah Cuaca</a>
+                                    <script>
+                                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                                    </script>
+                                    <div class="p-2 px-3 d-flex align-items-center justify-content-between">
+                                        <div class="uea-date">Day, 01 Jan 2025</div>
+                                        <div class="uea-time">18:22</div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-6 mb-3">
-                                <a class="rounded-4 weatherwidget-io" href="https://forecast7.com/en/24d5239d57/medina/" data-label_1="Madinah Al Munawarah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Madinah Al Munawarah Cuaca</a>
-                                <script>
-                                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                                </script>
+                                <div class="rounded-4 bg-tanur-coklat text-white overflow-hidden">
+                                    <a class="weatherwidget-io" href="https://forecast7.com/en/24d5239d57/medina/" data-label_1="Madinah Al Munawarah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Madinah Al Munawarah Cuaca</a>
+                                    <script>
+                                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                                    </script>
+                                    <div class="p-2 px-3 d-flex align-items-center justify-content-between">
+                                        <div class="uea-date">Day, 01 Jan 2025</div>
+                                        <div class="uea-time">18:22</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,10 +99,10 @@
                 <div class="col-lg-5 mb-3">
                     <h2>{{setting('title.currency')}}</h2>
                     <hr class="divider">
-                    <div class="currency-box text-white p-3 pb-4 rounded-4" style="background: linear-gradient(238deg, #00265A -23.62%, #44628C 58.84%, #007473 118.45%)">
+                    <div class="currency-box text-white py-5 pt-4 rounded-4" style="background: linear-gradient(238deg, #00265A -23.62%, #44628C 58.84%, #007473 118.45%)">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <div class="bg-radial-coklat-tua mb-2 text-white px-3 fw-semibold d-inline-flex mx-auto text-dark p-2 rounded-3">
+                                <div class="bg-radial-coklat-tua mb-3 text-white px-3 fw-semibold d-inline-flex mx-auto text-dark p-2 rounded-3">
                                     {{\Carbon\Carbon::parse(now())->format('d M Y')}}
                                 </div>
                             </div>
@@ -183,8 +195,10 @@
                             <div class="position-relative rounded-4 overflow-hidden package-item">
                                 <img src="{{Voyager::image($package->image)}}" alt="{{$package->title}}" style="aspect-ratio:3/4.8; object-fit:contain" class="d-block w-100 object-fit-cover">
                                 <div
-                                    class="flex-column p-5 p-md-4 text-center align-items-center justify-content-center position-absolute end-0 start-0 bottom-0 package-content" style="background:#000000a1">
-                                    <a href="{{route('package.show', $package->slug)}}" class="btn btn-light rounded-5 px-3">Lihat Detail Paket</a>
+                                    class="flex-column text-white p-5 p-md-4 text-center align-items-center justify-content-center position-absolute end-0 start-0 bottom-0 package-content" style="background:#000000a1">
+                                    <h5>{{$package->title}}</h5>
+                                    <p>{{$package->description}}</p>
+                                    <a href="{{route('package.show', $package->slug)}}" class="btn btn-light bg-tanur-coklat border-0 rounded-5 px-3">Lihat Detail Paket</a>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +223,7 @@
                                 class="p-3 text-white border border-success rounded-4 d-flex align-items-center justify-content-center flex-column text-center">
                                 <div class="d-flex mb-3 align-items-center justify-content-center">
                                     <span class="iconify tanur-coklat" style="font-size: 65px" data-icon="{{$facility->id_icon}}" data-inline="false"></span>
-                                </div>
+                                </div>Transportasi
                                 {{$facility->name}}
                             </div>
                         </div>
@@ -305,7 +319,7 @@
                         <img src="{{Voyager::image($new->image)}}" alt="Image {{$new->title}} News" class="d-block w-100 object-fit-cover" style="aspect-ratio:16/9;">
                         <a href="{{route('news.show', $new->slug)}}" class="p-4 d-block text-decoration-none text-dark">
                             <div class="tanur-green mb-1" style="font-size:13px">{{\Carbon\Carbon::parse($new->created_at)->format('d M Y')}}</div>
-                            <h6 class="line-clamp line-clamp-2">{{$new->title}}</h6>
+                            <h6 class="line-clamp line-clamp-2 tanur-blue">{{$new->title}}</h6>
                             <p class="mb-0 line-clamp line-clamp-3">
                                 {{$new->excerpt}}
                             </p>
@@ -416,5 +430,35 @@
         //         $('.currency-box .col-6:nth-child(3) .fs-2').text('N/A'); // Jika gagal, tampilkan "N/A"
         //     });
         // });
+
+        function getTimeUEA() {
+            const optionsDate = { timeZone: 'Asia/Riyadh', weekday: 'long', day: '2-digit', month: 'short', year: 'numeric' };
+            const optionsTime = { timeZone: 'Asia/Riyadh', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+
+            const now = new Date();
+            const formattedDate = new Intl.DateTimeFormat('id-ID', optionsDate).format(now);
+            const formattedTime = new Intl.DateTimeFormat('id-ID', optionsTime).format(now);
+
+            return {
+                date: formattedDate,
+                time: formattedTime
+            };
+        }
+
+        function updateUEATime() {
+            const dateTime = getTimeUEA();
+
+            // Update semua elemen dengan class 'uea-date'
+            document.querySelectorAll('.uea-date').forEach(el => {
+                el.textContent = dateTime.date;
+            });
+
+            // Update semua elemen dengan class 'uea-time'
+            document.querySelectorAll('.uea-time').forEach(el => {
+                el.textContent = dateTime.time;
+            });
+        }
+
+        setInterval(updateUEATime, 1000);
     </script>
 @endsection

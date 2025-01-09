@@ -26,6 +26,10 @@ header.sticky-active img {
   color: #c3932d;
 }
 
+.tanur-blue, .tanur-dark {
+  color: #132F57 !important;
+}
+
 .border-coklat {
   border-color: #c3932d !important;
 }
@@ -40,6 +44,11 @@ header.sticky-active img {
 
 .bg-tanur-green {
   background-color: #166862 !important;
+  color: #fff !important;
+}
+
+.bg-tanur-coklat {
+  background-color: #c3932d !important;
   color: #fff !important;
 }
 

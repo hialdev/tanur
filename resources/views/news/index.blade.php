@@ -90,7 +90,7 @@
                     <img src="{{Voyager::image($ni->image)}}" alt="Image News {{$ni->title}}" class="d-block w-100 object-fit-cover" style="aspect-ratio:16/9">
                     <a href="{{route('news.show', $ni->slug)}}" class="p-4 d-block text-decoration-none text-dark">
                         <div class="tanur-green mb-1" style="font-size:13px">{{\Carbon\Carbon::parse($ni->created_at)->format('d M Y')}}</div>
-                        <h6 class="line-clamp line-clamp-2">{{$ni->title}}</h6>
+                        <h6 class="line-clamp line-clamp-2 tanur-blue">{{$ni->title}}</h6>
                         <p class="mb-0 line-clamp line-clamp-3">{{$ni->excerpt}}
                         </p>
                     </a>

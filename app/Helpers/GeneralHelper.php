@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;  // Import Log facade
@@ -111,6 +112,5 @@ class GeneralHelper
     public static function waLink($text){
         return "https://wa.me/".setting('site.whatsapp')."?text=$text";
     }
-
 
 }
