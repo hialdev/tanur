@@ -68,29 +68,26 @@
                     <h2>{{setting('title.weather')}}</h2>
                     <hr class="divider">
                     <div class="weather-box">
-                        <div class="row">
-                            <div class="col-lg-6 mb-3">
-                                <div class="rounded-4 bg-tanur-coklat text-white overflow-hidden">
-                                    <a class="weatherwidget-io" href="https://forecast7.com/en/21d3939d86/mecca/" data-label_1="Makkah Al Mukarramah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Makkah Al Mukarramah Cuaca</a>
+                        <div class="rounded-4 bg-light text-white overflow-hidden">
+                            <div class="row align-items-center gap-0">
+                                <div class="col-sm-6 p-0">
+                                    <a class="weatherwidget-io w-100" href="https://forecast7.com/en/21d3939d86/mecca/" data-label_1="Makkah Al Mukarramah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Makkah Al Mukarramah Cuaca</a>
                                     <script>
                                     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
                                     </script>
-                                    <div class="p-2 px-3 d-flex align-items-center justify-content-between">
-                                        <div class="uea-date">Day, 01 Jan 2025</div>
-                                        <div class="uea-time">18:22</div>
-                                    </div>
+                                </div>
+                                <div class="col-sm-6 p-0">
+                                    <a class="weatherwidget-io w-100" href="https://forecast7.com/en/24d5239d57/medina/" data-label_1="Madinah Al Munawarah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Madinah Al Munawarah Cuaca</a>
+                                    <script>
+                                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                                    </script>
                                 </div>
                             </div>
-                            <div class="col-lg-6 mb-3">
-                                <div class="rounded-4 bg-tanur-coklat text-white overflow-hidden">
-                                    <a class="weatherwidget-io" href="https://forecast7.com/en/24d5239d57/medina/" data-label_1="Madinah Al Munawarah" data-label_2="Weather" data-font="Helvetica" data-icons="Climacons Animated" data-days="3" data-theme="weather_one" >Madinah Al Munawarah Cuaca</a>
-                                    <script>
-                                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                                    </script>
-                                    <div class="p-2 px-3 d-flex align-items-center justify-content-between">
-                                        <div class="uea-date">Day, 01 Jan 2025</div>
-                                        <div class="uea-time">18:22</div>
-                                    </div>
+                            <div class="p-2 px-3 tanur-green d-flex align-items-center justify-content-between">
+                                <div class="uea-date">Day, 01 Jan 2025</div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 48 48"><defs><mask id="ipSTime0"><g fill="none" stroke-linejoin="round" stroke-width="4"><path fill="#fff" stroke="#fff" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path stroke="#000" stroke-linecap="round" d="M24.008 12v12.01l8.479 8.48"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSTime0)"/></svg>
+                                    <div class="uea-time">18:22</div>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +99,7 @@
                     <div class="currency-box text-white py-5 pt-4 rounded-4" style="background: linear-gradient(238deg, #00265A -23.62%, #44628C 58.84%, #007473 118.45%)">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <div class="bg-radial-coklat-tua mb-3 text-white px-3 fw-semibold d-inline-flex mx-auto text-dark p-2 rounded-3">
+                                <div class="bg-radial-coklat-tua mb-2 text-white px-3 fw-semibold d-inline-flex mx-auto text-dark p-2 rounded-3">
                                     {{\Carbon\Carbon::parse(now())->format('d M Y')}}
                                 </div>
                             </div>
@@ -126,7 +123,7 @@
                                     <img src="{{env('APP_URL')}}/src/images/indonesia.svg" alt="" class="d-block shadow-sm rounded-2"
                                         style="height:3em;object-fit:contain">
                                     <div class="fs-5 tanur-coklat fw-bold">IDR</div>
-                                    <div class="fs-3">{{$kurs}}</div>
+                                    <div class="fs-4">{{$kurs}}</div>
                                 </div>
                             </div>
                         </div>
