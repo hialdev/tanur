@@ -3,7 +3,7 @@
     <div class="container py-5">
         <div class="">
             <div data-target="#prakata"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom border-1 py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Prakata</h2>
                 <div class="tanur-green arrow">
@@ -48,7 +48,7 @@
 
         <div class="">
             <div data-target="#visi-misi"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom border-1 py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Visi Misi</h2>
                 <div class="tanur-green arrow">
@@ -84,7 +84,7 @@
 
         <div class="">
             <div data-target="#sejarah"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom border-1 py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Sejarah</h2>
                 <div class="tanur-green arrow">
@@ -161,7 +161,7 @@
 
         <div class="">
             <div data-target="#kenapa-tanur"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom border-1 py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">{{setting('title.why')}}</h2>
                 <div class="tanur-green arrow">
@@ -198,7 +198,7 @@
 
         <div class="">
             <div data-target="#legalitas"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom border-1 py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Legalitas</h2>
                 <div class="tanur-green arrow">
@@ -228,7 +228,7 @@
 
         <div class="">
             <div data-target="#tim"
-                class="button-accordion d-flex border-bottom border-3 py-2 pt-3 border-coklat align-items-center justify-content-between"
+                class="button-accordion d-flex border-bottom border-1 py-2 pt-3 border-coklat align-items-center justify-content-between"
                 style="cursor: pointer">
                 <h2 class="fs-5 fw-bold tanur-coklat">Tim Tanur</h2>
                 <div class="tanur-green arrow">
