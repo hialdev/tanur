@@ -218,7 +218,7 @@
                                 class="p-3 text-white border border-success rounded-4 d-flex align-items-center justify-content-center flex-column text-center">
                                 <div class="d-flex mb-3 align-items-center justify-content-center">
                                     <span class="iconify tanur-coklat" style="font-size: 65px" data-icon="{{$facility->id_icon}}" data-inline="false"></span>
-                                </div>Transportasi
+                                </div>
                                 {{$facility->name}}
                             </div>
                         </div>
