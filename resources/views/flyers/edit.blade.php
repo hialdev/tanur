@@ -25,13 +25,13 @@
 
     <div class="row">
       <div class="col-md-4 h-100 mb-3">
-        <img src="{{$flyer->image ? '/storage/'.$flyer->image : 'https://placehold.co/800x400'}}" alt="Flyer Image Preview" class="d-none rounded-4 shadow w-100" style="">
+        <img src="{{$flyer->image ? '/storage/'.$flyer->image : 'https://placehold.co/800x400'}}" alt="Flyer Image Preview" class="rounded-4 shadow w-100" style="">
         <img src="" id="preview-image" alt="Flyer Image Preview" class="d-none rounded-4 shadow w-100" style="">
       </div>
       <div class="col-md-8">
         <div class="card">
             <div class="px-4 py-3 border-bottom">
-                <h5 class="card-title fw-semibold mb-0">Add New Flyer</h5>
+                <h5 class="card-title fw-semibold mb-0">Edit Flyer</h5>
             </div>
             <div class="card-body p-4">
                 <form action="{{route('flyer.update', $flyer->id)}}" method="POST" enctype="multipart/form-data">
