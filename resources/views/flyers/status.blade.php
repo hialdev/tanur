@@ -1,6 +1,11 @@
 @extends('layouts.blank')
+@section('title',$flyer->title ?? config('app.name', 'Tanur Muthmainnah'))
 @section('content')
 <div class="row align-items-center my-4">
+  <div class="col-12">
+    <h1>{{$flyer->title}}</h1>
+    <hr class="divider border-0 outline-0 d-block bg-primary rounded-4" style="width: 4em; height:0.4em">
+  </div>
   <div class="col-md-5 mb-4">
     <img src="{{$flyer->image ? '/storage/'.$flyer->image : 'https://placeholder.co/800x600'}}" alt="Flyer {{$flyer->title}} Image" class="d-block rounded-4 shadow w-100">
   </div>

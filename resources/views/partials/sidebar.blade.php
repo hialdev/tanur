@@ -23,7 +23,7 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Home</span>
                 </li>
-                <li class="sidebar-item">
+                <li class="sidebar-item {{ Route::is('home') ? 'selected' : '' }}">
                     <a href="{{ route('home') }}" class="sidebar-link" href="#" aria-expanded="false">
                         <span>
                             <i class="ti ti-home"></i>

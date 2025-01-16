@@ -20,6 +20,7 @@
     <!-- Core Css -->
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="{{url('/app.css')}}" />
     @yield('css')
 </head>
 

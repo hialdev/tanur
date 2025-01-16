@@ -25,7 +25,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
     return redirect()->route('home');
 });
-
+Route::get('/app.css', function () {
+    $theme = config('al.theme'); // Memuat konfigurasi tema
+    return response()
+        ->view('styles.app', ['theme' => $theme])
+        ->header('Content-Type', 'text/css');
+});
 // -------------- Auth Routes ----------------
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
