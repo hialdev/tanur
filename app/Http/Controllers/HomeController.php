@@ -57,7 +57,7 @@ class HomeController extends Controller
         //dd($isAdmin, $todayViewsCount, Carbon::today(), $yesterdayViewsCount,Carbon::yesterday(), $growthPercentage, $hourlyData);
         if ($isAdmin) {
             $count = (object)[
-                'user' => User::count(),
+                'user' => User::withoutRole('developer')->count(),
                 'flyer' => Flyer::count(),
                 'views' => FlyerView::count(),
             ];

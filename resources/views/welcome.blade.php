@@ -52,15 +52,15 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card border-start border-danger">
+            <div class="card border-start border-dark">
                 <div class="card-body">
                     <div class="d-flex gap-4 no-block align-items-center">
                         <div>
-                            <span class="text-danger display-6"><i class="ti ti-eye"></i></span>
+                            <span class="text-dark display-6"><i class="ti ti-eye"></i></span>
                         </div>
                         <div class="me-auto">
                             <h2 class="fs-7">{{$count->views}}</h2>
-                            <h6 class="fw-medium text-danger mb-0">Total Flyer Views</h6>
+                            <h6 class="fw-medium text-dark mb-0">Total Flyer Views</h6>
                         </div>
                     </div>
                 </div>
