@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Flyer;
 use App\Models\FlyerView;
+use App\Models\User;
 use Endroid\QrCode\Builder\Builder;
 use Endroid\QrCode\Encoding\Encoding;
 use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelHigh;
@@ -21,8 +22,12 @@ class FlyerController extends Controller
             'field' => $request->get('field') ?? 'created_at',
             'order' => $request->get('order') ? ($request->get('order') == 'newest' ? 'desc' : 'asc') : 'desc',
         ];
-
+        $user = auth()->user() ? User::find(auth()->user()->id) : null;
         $flyers = Flyer::where('user_id', auth()->id())->where('title', 'LIKE', '%'.$filter->q.'%')->orderBy($filter->field, $filter->order)->get();
+        if($user->hasRole(['admin', 'developer'])){
+            $flyers = Flyer::where('title', 'LIKE', '%'.$filter->q.'%')->orderBy($filter->field, $filter->order)->get();
+        }
+
         return view('flyers.index', compact('flyers', 'filter'));
     }
 
