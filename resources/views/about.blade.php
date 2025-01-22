@@ -136,7 +136,7 @@
                                         </div>
                                         <div class="d-flex align-items-center my-3 w-100">
                                             <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
-                                            <img src="/src/images/dotpoint.svg" alt="" class="d-block">
+                                            <img src="{{env('APP_URL')}}/src/images/dotpoint.svg" alt="" class="d-block">
                                             <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
                                         </div>
                                         <div class="px-4" style="height:8.5em">
