@@ -211,7 +211,7 @@
                                             <img src="{{env('APP_URL')}}/src/images/dotpoint.svg" alt="" class="d-block">
                                             <div class="d-block bg-primary bg-tanur-coklat" style="height: 100%; width:1px;"></div>
                                         </div>
-                                        <div class="px-2 py-2">
+                                        <div class="px-2 py-3">
                                             {{ $history['content'] }}
                                         </div>
                                     </div>
