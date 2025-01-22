@@ -139,7 +139,7 @@
                                             <img src="{{env('APP_URL')}}/src/images/dotpoint.svg" alt="" class="d-block">
                                             <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
                                         </div>
-                                        <div class="px-4" style="{{setting('site.sejarah_height')}}">
+                                        <div class="px-4" style="height:{{setting('site.sejarah_height')}}">
                                             {{ $history['content'] }}
                                         </div>
 
@@ -175,7 +175,7 @@
                                             <img src="{{env('APP_URL')}}/src/images/dotpoint.svg" alt="" class="d-block">
                                             <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
                                         </div>
-                                        <div class="px-4" style="{{setting('site.sejarah_height')}}">
+                                        <div class="px-4" style="height:{{setting('site.sejarah_height')}}">
                                             {{ $history['content'] }}
                                         </div>
 
