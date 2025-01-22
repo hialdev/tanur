@@ -149,13 +149,13 @@
 
                                         @if (($positionIndex - 4) % 8 == 0)
                                         <div class="position-absolute end-0 top-0 bottom-0 d-flex flex-column justify-content-end">
-                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:{{setting('site.sejarah_mb')}}"></div>
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:{{setting('site.sejarah_height_border')}}; margin-bottom:-5.4em"></div>
                                         </div>
                                         @endif
 
                                         @if (($positionIndex - 5) % 8 == 0)
                                         <div class="position-absolute start-0 top-0 bottom-0 d-flex flex-column justify-content-end">
-                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:{{setting('site.sejarah_mb')}}"></div>
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:{{setting('site.sejarah_height_border')}}; margin-bottom:-5.4em"></div>
                                         </div>
                                         @endif
                                     </div>
@@ -185,13 +185,13 @@
 
                                         @if (($positionIndex - 2) % 4 == 0)
                                         <div class="position-absolute end-0 top-0 bottom-0 d-flex flex-column justify-content-end">
-                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:{{setting('site.sajarah_md_mb')}}"></div>
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:{{setting('site.sejarah_height_border')}}; margin-bottom:-5.2em"></div>
                                         </div>
                                         @endif
 
                                         @if (($positionIndex - 3) % 4 == 0)
                                         <div class="position-absolute start-0 top-0 bottom-0 d-flex flex-column justify-content-end">
-                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:{{setting('site.sajarah_md_mb')}}"></div>
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:{{setting('site.sejarah_height_border')}}; margin-bottom:-5.2em"></div>
                                         </div>
                                         @endif
                                     </div>
