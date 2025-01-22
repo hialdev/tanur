@@ -139,7 +139,7 @@
                                             <img src="{{env('APP_URL')}}/src/images/dotpoint.svg" alt="" class="d-block">
                                             <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
                                         </div>
-                                        <div class="px-4" style="height:8.5em">
+                                        <div class="px-4" style="{{setting('site.sejarah_height')}}">
                                             {{ $history['content'] }}
                                         </div>
 
@@ -149,13 +149,13 @@
 
                                         @if (($positionIndex - 4) % 8 == 0)
                                         <div class="position-absolute end-0 top-0 bottom-0 d-flex flex-column justify-content-end">
-                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:-5.4em"></div>
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:{{setting('site.sejarah_mb')}}"></div>
                                         </div>
                                         @endif
 
                                         @if (($positionIndex - 5) % 8 == 0)
                                         <div class="position-absolute start-0 top-0 bottom-0 d-flex flex-column justify-content-end">
-                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:-5.4em"></div>
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:{{setting('site.sejarah_mb')}}"></div>
                                         </div>
                                         @endif
                                     </div>
@@ -172,10 +172,10 @@
                                         </div>
                                         <div class="d-flex align-items-center my-3 w-100">
                                             <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
-                                            <img src="/src/images/dotpoint.svg" alt="" class="d-block">
+                                            <img src="{{env('APP_URL')}}/src/images/dotpoint.svg" alt="" class="d-block">
                                             <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
                                         </div>
-                                        <div class="px-4" style="height:8.5em">
+                                        <div class="px-4" style="{{setting('site.sejarah_height')}}">
                                             {{ $history['content'] }}
                                         </div>
 
@@ -185,13 +185,13 @@
 
                                         @if (($positionIndex - 2) % 4 == 0)
                                         <div class="position-absolute end-0 top-0 bottom-0 d-flex flex-column justify-content-end">
-                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:-5.25em"></div>
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:{{setting('site.sajarah_md_mb')}}"></div>
                                         </div>
                                         @endif
 
                                         @if (($positionIndex - 3) % 4 == 0)
                                         <div class="position-absolute start-0 top-0 bottom-0 d-flex flex-column justify-content-end">
-                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:-5.25em"></div>
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:{{setting('site.sajarah_md_mb')}}"></div>
                                         </div>
                                         @endif
                                     </div>
