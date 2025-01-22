@@ -51,8 +51,23 @@ class PageController extends Controller
         $seo = [
             'title' => 'Tentang Tanur Muthmainnah',
         ];
+
+        $columns = isset($_COOKIE['timeline_columns']) ? (int) $_COOKIE['timeline_columns'] : 4;
         $timelines = Timeline::orderBy('date', 'ASC')->get();
-        return view('about', compact('seo', 'timelines', 'values', 'legalitas', 'teams'));
+
+        $timelinesArray = $timelines->toArray();
+        $chunks = array_chunk($timelinesArray, $columns);
+
+        foreach ($chunks as $index => &$chunk) {
+            if ($index % 2 == 1) { // Setiap blok ke-2, ke-4, dst, dibalik
+                $chunk = array_reverse($chunk);
+            }
+        }
+
+        $timelinesReverse = collect(array_merge(...$chunks));
+
+
+        return view('about', compact('seo', 'timelines', 'columns', 'timelinesReverse', 'values', 'legalitas', 'teams'));
     }
 
     public function contact(){

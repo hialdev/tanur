@@ -1,4 +1,9 @@
 @extends('layouts.base')
+@section('css')
+<style>
+
+</style>
+@endsection
 @section('content')
     <div class="container py-5">
         <div class="">
@@ -119,42 +124,103 @@
                             {!! setting('about.sejarah_content') !!}
                         </div>
                     </div>
-                    {{-- <div class="col-12">
-                        <h3>{{setting('title.timeline')}}</h3>
-                        <hr class="divider">
-                        @foreach ($timelines as $timeline)
-                        <div class="row">
-                            <!-- timeline item 1 left dot -->
-                            <div class="col-auto text-center flex-column d-flex">
-                                <div class="row h-50">
-                                    <div class="col">&nbsp;</div>
-                                    <div class="col">&nbsp;</div>
-                                </div>
-                                <h5 class="m-2">
-                                    <span class="badge bg-primary bg-gradient-green border rounded-circle" style="aspect-ratio:1/1;">&nbsp;</span>
-                                </h5>
-                                <div class="row h-50">
-                                    <div class="col border-end border-primary border-coklat">&nbsp;</div>
-                                    <div class="col">&nbsp;</div>
+                    <div class="col-12">
+                        <div class="mt-5">
+                        @if(setting('site.show_timeline'))
+                            <div class="d-none d-xl-block">
+                                <div class="timeline row gap-0">
+                                    @foreach (\App\Helpers\GeneralHelper::getReversedTimelines(4) as $history)
+                                    <div class="px-0 col-3 text-center py-3 position-relative">
+                                        <div class="timeline-year fw-bold fs-4">
+                                            {{ \Carbon\Carbon::parse($history['date'])->format('Y') }}
+                                        </div>
+                                        <div class="d-flex align-items-center my-3 w-100">
+                                            <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
+                                            <img src="/src/images/dotpoint.svg" alt="" class="d-block">
+                                            <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
+                                        </div>
+                                        <div class="px-4" style="height:8.5em">
+                                            {{ $history['content'] }}
+                                        </div>
+
+                                        @php
+                                            $positionIndex = $loop->index + 1;
+                                        @endphp
+
+                                        @if (($positionIndex - 4) % 8 == 0)
+                                        <div class="position-absolute end-0 top-0 bottom-0 d-flex flex-column justify-content-end">
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:-5.4em"></div>
+                                        </div>
+                                        @endif
+
+                                        @if (($positionIndex - 5) % 8 == 0)
+                                        <div class="position-absolute start-0 top-0 bottom-0 d-flex flex-column justify-content-end">
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:-5.4em"></div>
+                                        </div>
+                                        @endif
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            <!-- timeline item 1 event content -->
-                            <div class="col py-2">
-                                <div class="card p-0 border-0">
-                                    <div class="card-body p-0 py-2">
-                                        <div class="float-right text-muted">{{\Carbon\Carbon::parse($timeline->date)->format('d M Y')}}</div>
-                                        <h4 class="">{{$timeline->title}}</h4>
-                                        <div>
-                                            {!! $timeline->content !!}
+
+                            <div class="d-none d-md-block d-xl-none">
+                                <div class="timeline row gap-0">
+                                    @foreach (\App\Helpers\GeneralHelper::getReversedTimelines(2) as $history)
+                                    <div class="px-0 col-6 text-center py-3 position-relative">
+                                        <div class="timeline-year fw-bold fs-4">
+                                            {{ \Carbon\Carbon::parse($history['date'])->format('Y') }}
+                                        </div>
+                                        <div class="d-flex align-items-center my-3 w-100">
+                                            <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
+                                            <img src="/src/images/dotpoint.svg" alt="" class="d-block">
+                                            <div class="d-block bg-primary flex-grow-1 bg-tanur-coklat" style="height: 2px;"></div>
+                                        </div>
+                                        <div class="px-4" style="height:8.5em">
+                                            {{ $history['content'] }}
+                                        </div>
+
+                                        @php
+                                            $positionIndex = $loop->index + 1;
+                                        @endphp
+
+                                        @if (($positionIndex - 2) % 4 == 0)
+                                        <div class="position-absolute end-0 top-0 bottom-0 d-flex flex-column justify-content-end">
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:-5.25em"></div>
+                                        </div>
+                                        @endif
+
+                                        @if (($positionIndex - 3) % 4 == 0)
+                                        <div class="position-absolute start-0 top-0 bottom-0 d-flex flex-column justify-content-end">
+                                            <div class="bg-tanur-coklat" style="width: 2px; height:16.9em; margin-bottom:-5.25em"></div>
+                                        </div>
+                                        @endif
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="d-md-none container">
+                                <div class="timeline row gap-0">
+                                    @foreach (\App\Helpers\GeneralHelper::getReversedTimelines(1) as $history)
+                                    <div class="px-0 col-12 text-start d-flex align-items-center gap-3">
+                                        <div class="timeline-year fw-bold fs-4">
+                                            {{ \Carbon\Carbon::parse($history['date'])->format('Y') }}
+                                        </div>
+                                        <div class="d-flex flex-column h-100 align-items-center my-3">
+                                            <div class="d-block bg-primary bg-tanur-coklat" style="height: 100%; width:1px;"></div>
+                                            <img src="/src/images/dotpoint.svg" alt="" class="d-block">
+                                            <div class="d-block bg-primary bg-tanur-coklat" style="height: 100%; width:1px;"></div>
+                                        </div>
+                                        <div class="px-2 py-2">
+                                            {{ $history['content'] }}
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
+                        @endif
                         </div>
-                        <!--/row-->
-                        @endforeach
-                        
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -262,6 +328,24 @@
     </div>
 @endsection
 @section('scripts')
+    <script>
+        function getTimelineColumns() {
+            let width = window.innerWidth;
+            let columns = 4; // Default 4 kolom (lg-xl)
+
+            if (width <= 768) {
+                columns = 2; // sm-md
+            } else if (width <= 992) {
+                columns = 3; // md-lg
+            }
+
+            document.cookie = "timeline_columns=" + columns; // Simpan dalam cookie
+        }
+
+        getTimelineColumns(); // Panggil saat halaman dimuat
+        window.addEventListener("resize", getTimelineColumns); // Update saat resize
+    </script>
+
     <script>
         $(document).ready(function() {
             function handleHashChange() {

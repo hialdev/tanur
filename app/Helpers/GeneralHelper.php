@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use App\Models\Timeline;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
@@ -111,6 +112,21 @@ class GeneralHelper
 
     public static function waLink($text){
         return "https://wa.me/".setting('site.whatsapp')."?text=$text";
+    }
+
+    public static function getReversedTimelines($columns = 4)
+    {
+        $timelines = Timeline::orderBy('date', 'ASC')->get();
+        $timelinesArray = $timelines->toArray();
+        $chunks = array_chunk($timelinesArray, $columns);
+
+        foreach ($chunks as $index => &$chunk) {
+            if ($index % 2 == 1) { // Setiap blok ke-2, ke-4, dst, dibalik
+                $chunk = array_reverse($chunk);
+            }
+        }
+
+        return collect(array_merge(...$chunks));
     }
 
 }
