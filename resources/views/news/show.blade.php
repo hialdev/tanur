@@ -27,7 +27,7 @@
         @foreach ($reccomend_news as $new)
             <div class="bg-light rounded-4 overflow-hidden h-100">
                 <img src="{{Voyager::image($new->image)}}" alt="Image {{$new->title}} News" class="d-block w-100 object-fit-cover" style="aspect-ratio:16/9;">
-                <a href="{{route('news.show', 'abc')}}" class="p-4 d-block text-decoration-none text-dark">
+                <a href="{{route('news.show', $new->slug)}}" class="p-4 d-block text-decoration-none text-dark">
                     <div class="tanur-green mb-1" style="font-size:13px">{{\Carbon\Carbon::parse($new->created_at)->format('d M Y')}}</div>
                     <h6 class="line-clamp line-clamp-2 tanur-blue">{{$new->title}}</h6>
                     <p class="mb-0 line-clamp line-clamp-3">
