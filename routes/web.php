@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\MerchandiseController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PackageController;
@@ -24,6 +25,9 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
+
+Route::get('/buku', [BookController::class, 'index'])->name('book.index');
+Route::get('/buku/{slug}', [BookController::class, 'show'])->name('book.show');
 
 Route::get('/package', [PackageController::class, 'index'])->name('package.index');
 Route::get('/package/{slug}', [PackageController::class, 'show'])->name('package.show');
