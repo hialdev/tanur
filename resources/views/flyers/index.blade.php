@@ -137,7 +137,7 @@
                                             </li>
                                             <li>
                                                 <button type="button" class="dropdown-item d-flex align-items-center gap-3"
-                                                    data-bs-toggle="modal" data-bs-target="#pop-tool-modal"><i
+                                                    data-bs-toggle="modal" data-bs-target="#updateSeatModal-{{$flyer->id}}"><i
                                                         class="fs-4 ti ti-user-minus"></i>Set Sisa Seat</button>
                                             </li>
                                             <li>
@@ -158,7 +158,7 @@
                                         </ul>
                                     </div>
                                     <!-- Vertically centered modal -->
-                                    <div class="modal fade" id="pop-tool-modal" tabindex="-1"
+                                    <div class="modal fade" id="updateSeatModal-{{$flyer->id}}" tabindex="-1"
                                         aria-labelledby="vertical-center-modal" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                             <div class="modal-content">
