@@ -105,7 +105,7 @@
         @yield('content')
     </main>
     <a href="{{\App\Helpers\GeneralHelper::waLink('Hallo Tanur Muthmainnah, Saya ingin bertanya seputar haji dan umroh')}}" style="display: inline-block; z-index: 9999" class="whatsapp-icon text-decoration-none position-fixed bottom-0 end-0">
-      <img src="{{env('APP_URL')}}/src/images/wa-cta.png" alt="Whatsapp Chat Admin" style="width: 6em">
+      <img src="{{env('APP_URL')}}/src/images/wa-cta.png" alt="Whatsapp Chat Admin" style="width: 8em">
     </a>
     <footer style="background: radial-gradient(184.54% 77.95% at 111.54% 7.3%, #007473 0%, #132F57 100%);">
       <div class="container py-5">
