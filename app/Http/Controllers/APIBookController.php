@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookChapter;
+use App\Models\BookSection;
 use Illuminate\Http\Request;
+use TCG\Voyager\Facades\Voyager;
 
 class APIBookController extends Controller
 {
@@ -13,31 +15,47 @@ class APIBookController extends Controller
         $page = $request->input('page', 1);
         $query = $request->input('q', '');
         $desc = $request->input('desc', 0);
-        $section = $request->input('with_section', 0);
 
-        $book = BookChapter::when($query, function ($q) use ($query) {
+        $books = BookChapter::when($query, function ($q) use ($query) {
                 return $q->where('name', 'like', "%$query%");
             })
             ->orderBy('created_at', $desc ? 'desc' : 'asc')
             ->paginate($limit, ['*'], 'page', $page);
+        $books->getCollection()->transform(function ($item) {
+            return $this->formatIt($item);
+        });
 
-        if($section){
-            $book = BookChapter::with('sections')->when($query, function ($q) use ($query) {
-                return $q->where('name', 'like', "%$query%");
-            })
-            ->orderBy('created_at', $desc ? 'desc' : 'asc')
-            ->paginate($limit, ['*'], 'page', $page);
-        }
         return response()->json([
             'success' => true,
             'status' => 200,
-            'data' => $book->items()
+            'data' => $books->items()
         ]);
     }
 
-    public function show($id)
+    public function section($id)
     {
-        $book = BookChapter::with('sections')->find($id);
+        $sections = BookSection::where('chapter_id', $id)
+                ->select('id', 'order', 'title', 'slug', 'created_at', 'updated_at')
+                ->get();
+
+        if (!$sections) {
+            return response()->json([
+                'success' => false,
+                'status' => 404,
+                'message' => 'Book not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'status' => 200,
+            'data' => $sections,
+        ]);
+    }
+
+    public function content($id)
+    {
+        $book = BookSection::find($id);
 
         if (!$book) {
             return response()->json([
@@ -50,7 +68,21 @@ class APIBookController extends Controller
         return response()->json([
             'success' => true,
             'status' => 200,
-            'data' => $book
+            'data' => $this->formatIt($book),
         ]);
     }
+
+    private function formatIt($item)
+    {
+        return [
+            'id' => $item->id,
+            'name' => $item->name,
+            'slug' => $item->slug,
+            'icon' => Voyager::image($item->icon),
+            'description' => $item->description,
+            'created_at' => $item->created_at,
+            'updated_at' => $item->updated_at,
+        ];
+    }
 }
+

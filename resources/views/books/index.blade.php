@@ -3,7 +3,7 @@
 <section class="bg-light">
     <div class="container-sm py-5">
       <div class="p-4 pt-4 bg-white rounded-4">
-        <h1 class="fs-3 text-center mb-4">Buku Tanur Muthmainnah</h1>
+        <h1 class="fs-3 text-center mb-4">Buku Doa Tanur Muthmainnah</h1>
         <div class="p-4 rounded-4" style="background-color: #e7f5f5">
           <div class="row">
             @forelse ($chapters as $chapter)

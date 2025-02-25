@@ -58,7 +58,7 @@
       @forelse ($packages as $package)
       <div class="col-md-4 mb-3">
         <div class="bg-light border border-coklat p-3 rounded-4">
-          <img src="{{Voyager::image($package->image)}}" alt="Image {{$package->title}} Package" class="d-block rounded-3 mb-3 w-100">
+          <img src="{{Voyager::image($package->image)}}" alt="Image {{$package->title}} Package" class="d-block rounded-3 mb-3 w-100" style="aspect-ratio: 210 / 297; object-fit:cover">
           <h2 class="fs-5">
             {{$package->title}}
           </h2>

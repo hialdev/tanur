@@ -44,7 +44,7 @@ class PackageController extends Controller
             'title' => 'Paket Umroh dan Haji - Tanur Muthmainnah',
         ];
 
-        return view('package.index', compact('seo', 'packages', 'typeOptions', 'filter'));
+        return view('package.comingsoon', compact('seo', 'packages', 'typeOptions', 'filter'));
     }
 
 

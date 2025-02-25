@@ -1,5 +1,30 @@
 @extends('layouts.base')
 @section('css')
+<style>
+    .facilities-container {
+        display: grid;
+        gap: 10px; /* Jarak antar item */
+    }
+
+    /* Default: 2 kolom (untuk layar kecil, mobile) */
+    .facilities-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Tablet: 4 kolom */
+    @media (min-width: 768px) {
+        .facilities-container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    /* Desktop: 8 kolom */
+    @media (min-width: 992px) {
+        .facilities-container {
+            grid-template-columns: repeat(8, 1fr);
+        }
+    }
+</style>
 @endsection
 
 @section('content')
@@ -83,7 +108,7 @@
                                     </script>
                                 </div>
                             </div>
-                            <div class="p-2 px-3 tanur-green d-flex align-items-center gap-3 justify-content-center" style="background:#f2f2f2">
+                            <div class="p-2 px-3 border-0 d-flex align-items-center gap-3 justify-content-center text-white" style="background:radial-gradient(62.24% 113.19% at 120% 33.76%, #F0D68B 0%, #BCA565 33.23%, #917C45 100%)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 48 48"><defs><mask id="ipSTime0"><g fill="none" stroke-linejoin="round" stroke-width="4"><path fill="#fff" stroke="#fff" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path stroke="#000" stroke-linecap="round" d="M24.008 12v12.01l8.479 8.48"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSTime0)"/></svg>
                                 <div class="uea-date">Day, 01 Jan 2025</div>
                                 <div class="uea-time">18:22</div>
@@ -174,7 +199,7 @@
                         @foreach ($type_packages as $package)
                         <div class="">
                             <div class="position-relative rounded-4 overflow-hidden">
-                                <img src="{{Voyager::image($package->image)}}" alt="{{$package->title}}" style="aspect-ratio:3/4.8; object-fit:cover"  class="d-block w-100 object-fit-cover">
+                                <img src="{{Voyager::image($package->image)}}" alt="{{$package->title}}" style="aspect-ratio: 210 / 297; object-fit:cover"  class="d-block w-100 object-fit-cover">
                                 <div
                                     class="d-flex flex-column p-5 p-md-4 text-center align-items-center h-100 position-absolute top-0 end-0 start-0 bottom-0">
                                     <h3 class="fs-2 fs-md-5 fs-lg-2 fw-bold text-white">{{$package->title}}</h3>
@@ -188,7 +213,7 @@
                         @foreach ($packages as $package)
                         <div class="">
                             <div class="position-relative rounded-4 overflow-hidden package-item">
-                                <img src="{{Voyager::image($package->image)}}" alt="{{$package->title}}" style="aspect-ratio:3/4.8; object-fit:contain" class="d-block w-100 object-fit-cover">
+                                <img src="{{Voyager::image($package->image)}}" alt="{{$package->title}}" style="aspect-ratio: 210 / 297; object-fit:contain" class="d-block w-100 object-fit-cover">
                                 <div
                                     class="flex-column text-white p-5 p-md-4 text-center align-items-center justify-content-center position-absolute end-0 start-0 bottom-0 package-content" style="background:#000000a1">
                                     <h5>{{$package->title}}</h5>
@@ -211,13 +236,13 @@
         </div>
         <div style="background-color: #132F57">
             <div class="container py-5">
-                <div class="row">
+                <div class="facilities-container">
                     @foreach ($facilities as $facility)
-                        <div class="col-6 col-md-3 mb-3">
-                            <div style="aspect-ratio:1/1"
-                                class="p-3 text-white border border-success rounded-4 d-flex align-items-center justify-content-center flex-column text-center">
-                                <div class="d-flex mb-3 align-items-center justify-content-center">
-                                    <span class="iconify tanur-coklat" style="font-size: 65px" data-icon="{{$facility->id_icon}}" data-inline="false"></span>
+                        <div class="mb-3">
+                            <div style=""
+                                class="p-3 h-100 text-white border border-success rounded-4 d-flex align-items-center justify-content-around flex-column text-center">
+                                <div class="d-flex mb-4 align-items-center justify-content-center">
+                                    <span class="iconify tanur-coklat" style="font-size: 55px" data-icon="{{$facility->id_icon}}" data-inline="false"></span>
                                 </div>
                                 {{$facility->name}}
                             </div>

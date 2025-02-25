@@ -28,5 +28,6 @@ Route::middleware(['access.code'])->group(function () {
     Route::get('/news/{id}', [APINewsController::class, 'show']);
 
     Route::get('/book', [APIBookController::class, 'index']);
-    Route::get('/book/{id}', [APIBookController::class, 'show']);
+    Route::get('/book/{id}/section', [APIBookController::class, 'section']);
+    Route::get('/section/{id}', [APIBookController::class, 'content']);
 });

@@ -28,11 +28,14 @@ class APINewsController extends Controller
             })
             ->orderBy('created_at', $desc ? 'desc' : 'asc')
             ->paginate($limit, ['*'], 'page', $page);
+        $news->getCollection()->transform(function ($item) {
+            return $this->formatIt($item);
+        });
 
         return response()->json([
             'success' => true,
             'status' => 200,
-            'data' => $news->items()
+            'data' => $news
         ]);
     }
 
@@ -70,6 +73,9 @@ class APINewsController extends Controller
 
         // Gabungkan kedua koleksi
         $news = $featuredNews->merge($latestNews);
+        $news = $news->map(function ($item){
+            return $this->formatIt($item);
+        });
 
         return response()->json([
             'success' => true,
@@ -97,4 +103,20 @@ class APINewsController extends Controller
             'data' => $news
         ]);
     }
+
+    private function formatIt($item)
+    {
+        return [
+            'id' => $item->id,
+            'title' => $item->title,
+            'slug' => $item->slug,
+            'excerpt' => $item->excerpt,
+            'image' => Voyager::image($item->image),
+            'is_featured' => $item->is_featured,
+            'content' => $item->content,
+            'created_at' => $item->created_at,
+            'updated_at' => $item->updated_at,
+        ];
+    }
+
 }
