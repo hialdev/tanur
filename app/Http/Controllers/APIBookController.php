@@ -79,6 +79,7 @@ class APIBookController extends Controller
             'name' => $item->name,
             'slug' => $item->slug,
             'icon' => Voyager::image($item->icon),
+            'content' => $item->content,
             'description' => $item->description,
             'created_at' => $item->created_at,
             'updated_at' => $item->updated_at,
