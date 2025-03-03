@@ -86,6 +86,45 @@
         </div>
     </section>
 
+    @if(setting('site.show_imsak'))
+    <section>
+        <div class="container relative py-4">
+            <div class="row">
+                <div class="col-12 col-md-7 mb-3 ">
+                    <img src="{{Voyager::image(setting('content.imasakiyah'))}}" alt="Tanur Jadwal Imsakiyah dan Shalat Ramadhan 2025 / 1446H" class="d-block w-100 rounded-4 mb-3">
+                </div>
+                <div class="col-12 col-md-5 mb-3 order-first order-md-last">
+                    <div class="p-5 position-sticky rounded-4 bg-light" style="top: 5em">
+                        <h2>{{setting('content.imsakiyah_title')}}</h2>
+                        <hr class="divider">
+                        <div class="d-flex align-items-center gap-2">
+                            <!-- Tombol Download -->
+                            <a href="{{ Voyager::image(setting('content.imasakiyah')) }}" 
+                            download 
+                            class="btn btn-primary bg-tanur-green border-0 p-2 px-3 d-flex align-items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5l5-5m-5-7v12"/>
+                                </svg>
+                                Unduh Jadwal
+                            </a>
+
+                            <!-- Tombol Share -->
+                            <button onclick="shareImage()" 
+                                    class="btn btn-secondary border-0 p-2 px-3 d-flex align-items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                        d="m20 12l-6.4-7v3.5C10.4 8.5 4 10.6 4 19c0-1.167 1.92-3.5 9.6-3.5V19z"/>
+                                </svg>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @endif
     <section>
         <div class="container py-4">
             <div class="row">
@@ -186,7 +225,7 @@
         </div>
     </section>
 
-    <section>
+    {{-- <section>
         <div class="container py-4">
             <div class="row">
                 <div class="col-12 mb-5">
@@ -227,7 +266,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section>
         <div class="container py-4 pb-3">
@@ -409,6 +448,21 @@
 @endsection
 
 @section('scripts')
+    <script>
+        function shareImage() {
+            const imageUrl = "{{ Voyager::image(setting('content.imasakiyah')) }}";
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Jadwal Imsakiyah',
+                    text: 'Cek jadwal imsakiyah terbaru.',
+                    url: imageUrl
+                }).catch(err => console.log('Error sharing:', err));
+            } else {
+                alert("Fitur share tidak didukung di browser ini atau Situs tidak dalam mode aman (HTTPS).");
+            }
+        }
+    </script>
+
     <script>
         // $(document).ready(function() {
         //     const weatherApiKey = 'bf14d430002e6b686c80cc74f4895979'; // Ganti dengan API key Anda

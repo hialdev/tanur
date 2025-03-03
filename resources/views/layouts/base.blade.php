@@ -94,7 +94,7 @@
                   </ul>
                 </div>
                 <a href="{{route('news.index')}}" class="menu-item text-decoration-none {{Route::is('news.*') ? 'active' : ''}}">Berita</a>
-                <a href="{{route('book.index')}}" class="menu-item text-decoration-none {{Route::is('book.*') ? 'active' : ''}}">Buku</a>
+                {{-- <a href="{{route('book.index')}}" class="menu-item text-decoration-none {{Route::is('book.*') ? 'active' : ''}}">Buku</a> --}}
                 <a href="{{route('merchandise.index')}}" class="menu-item text-decoration-none {{Route::is('merchandise.*') ? 'active' : ''}}">Merchandise</a>
                 <a href="{{route('contact')}}" class="menu-item text-decoration-none {{Route::is('contact') ? 'active' : ''}}">Kontak</a>
               </nav>
