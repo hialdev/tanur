@@ -35,6 +35,10 @@ Route::get('/package/{slug}', [PackageController::class, 'show'])->name('package
 Route::get('/merchandise', [MerchandiseController::class, 'index'])->name('merchandise.index');
 Route::get('/merchandise/{slug}', [MerchandiseController::class, 'show'])->name('merchandise.show');
 
+Route::get('/RamadhanWithTanur', function(){
+    redirect()->to(Voyager::image(setting('content.imasakiyah')));
+})->name('short-url');
+
 Route::group(['prefix' => 'assalamualaikum'], function () {
     Voyager::routes();
 });

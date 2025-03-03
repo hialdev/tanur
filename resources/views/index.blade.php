@@ -450,15 +450,17 @@
 @section('scripts')
     <script>
         function shareImage() {
-            const imageUrl = "{{ Voyager::image(setting('content.imasakiyah')) }}";
+            const shareUrl = "{{ route('short-url') }}";
+            const shareText = "{{ setting('content.imsak_caption') }}";
+
             if (navigator.share) {
                 navigator.share({
                     title: 'Jadwal Imsakiyah',
-                    text: 'Cek jadwal imsakiyah terbaru.',
-                    url: imageUrl
+                    text: shareText,
+                    url: shareUrl
                 }).catch(err => console.log('Error sharing:', err));
             } else {
-                alert("Fitur share tidak didukung di browser ini atau Situs tidak dalam mode aman (HTTPS).");
+                alert("Fitur share tidak didukung di browser ini atau situs tidak dalam mode aman (HTTPS).");
             }
         }
     </script>
