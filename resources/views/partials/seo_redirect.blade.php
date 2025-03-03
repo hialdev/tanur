@@ -7,7 +7,7 @@
 
     @include('partials.seo', [
       'title' => setting('content.imsak_title'),
-      'image' => Voyager::image(setting('content.imasakiyah'));
+      'image' => Voyager::image(setting('content.imasakiyah')),
     ])
 
     <!-- Redirect Script -->
