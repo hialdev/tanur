@@ -451,7 +451,7 @@
     <script>
         function shareImage() {
             const shareUrl = "{{ route('short-url') }}";
-            const shareText = "{{ setting('content.imsak_caption') }}";
+            const shareText = `{{ setting('content.imsak_caption') }}`;
 
             if (navigator.share) {
                 navigator.share({
