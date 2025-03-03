@@ -449,6 +449,12 @@
 
 @section('scripts')
     <script>
+        function decodeEntities(encodedString) {
+            const textarea = document.createElement("textarea");
+            textarea.innerHTML = encodedString;
+            return textarea.value;
+        }
+        
         function shareImage() {
             const shareUrl = "{{ route('short-url') }}";
             const shareText = decodeEntities(`{{ setting('content.imsak_caption') }}`);
