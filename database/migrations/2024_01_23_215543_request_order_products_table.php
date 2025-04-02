@@ -1,0 +1,63 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection('osano')->create('request_order_products', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->uuid('request_order_id');
+            $table->uuid('product_id')->nullable();
+
+            $table->boolean('is_meteran')->default(0);
+            $table->uuid('stock_id')->nullable(); // Satuan
+            $table->uuid('stock_meter_id')->nullable(); // Meteran
+            $table->decimal('length', 12, 2)->nullable();
+            $table->bigInteger('qty')->nullable();
+
+            $table->decimal('price_sale', 15, 2);
+            
+            $table->timestamps();
+
+            $table->foreign('request_order_id')
+                ->references('id')
+                ->on('request_orders')
+                ->onDelete('cascade');
+
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('restrict');
+
+            $table->foreign('stock_id')
+                ->references('id')
+                ->on('stocks')
+                ->onDelete('restrict');
+
+            $table->foreign('stock_meter_id')
+                ->references('id')
+                ->on('stock_meters')
+                ->onDelete('restrict');
+                 
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection('osano')->dropIfExists('request_order_products');
+    }
+};
