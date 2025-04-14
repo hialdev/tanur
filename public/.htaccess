@@ -3,6 +3,11 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    <IfModule mod_mime.c>
+        AddType font/woff .woff
+        AddType font/woff2 .woff2
+    </IfModule>
+
     RewriteEngine On
 
     # Handle Authorization Header
