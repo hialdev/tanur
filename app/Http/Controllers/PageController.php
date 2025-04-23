@@ -32,7 +32,7 @@ class PageController extends Controller
         $featured_reviews = FeaturedReview::all();
         $reviews = Review::latest()->limit(4)->get();
         $news = News::latest()->limit(4)->get();
-        $socmeds = Socmed::all();
+        $socmeds = Socmed::orderBy('urutan', 'ASC')->get();
         $packages = Package::where('is_featured', 1)->limit(8)->get();
         if ($packages->isEmpty()) {
             $packages = $packages->merge(Package::latest()->limit(5)->get());
