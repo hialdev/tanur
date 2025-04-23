@@ -86,27 +86,27 @@
         </div>
     </section>
 
-    @if(setting('site.show_imsak'))
+    @if(setting('content.information_show'))
     <section>
         <div class="container relative py-4">
             <div class="row">
                 <div class="col-12 col-md-7 mb-3 ">
-                    <img src="{{Voyager::image(setting('content.imasakiyah'))}}" alt="Tanur Jadwal Imsakiyah dan Shalat Ramadhan 2025 / 1446H" class="d-block w-100 rounded-4 mb-3">
+                    <img src="{{Voyager::image(setting('content.information_image'))}}" alt="{{setting('content.information_title')}} Image" class="d-block w-100 rounded-4 mb-3">
                 </div>
                 <div class="col-12 col-md-5 mb-3 order-first order-md-last">
                     <div class="p-5 position-sticky rounded-4 bg-light" style="top: 5em">
-                        <h2>{{setting('content.imsakiyah_title')}}</h2>
+                        <h2>{{setting('content.information_title')}}</h2>
                         <hr class="divider">
                         <div class="d-flex align-items-center gap-2">
                             <!-- Tombol Download -->
-                            <a href="{{ Voyager::image(setting('content.imasakiyah')) }}" 
+                            <a href="{{ Voyager::image(setting('content.information_image')) }}" 
                             download 
                             class="btn btn-primary bg-tanur-green border-0 p-2 px-3 d-flex align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                                         d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5l5-5m-5-7v12"/>
                                 </svg>
-                                Unduh Jadwal
+                                {{ setting('content.information_btn_text') }}
                             </a>
 
                             <!-- Tombol Share -->
@@ -116,7 +116,7 @@
                                     <path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                                         d="m20 12l-6.4-7v3.5C10.4 8.5 4 10.6 4 19c0-1.167 1.92-3.5 9.6-3.5V19z"/>
                                 </svg>
-                                Share
+                                {{ setting('content.information_btn_share') }}
                             </button>
                         </div>
                     </div>
@@ -457,11 +457,11 @@
         
         function shareImage() {
             const shareUrl = "{{ route('short-url') }}";
-            const shareText = decodeEntities(`{{ setting('content.imsak_caption') }}`);
-
+            const shareText = decodeEntities(`{{ setting('content.information_caption') }}`);
+            const shareTitle = `{{ setting('content.information_title') }}`;
             if (navigator.share) {
                 navigator.share({
-                    title: 'Jadwal Imsakiyah',
+                    title: shareTitle,
                     text: shareText,
                     url: shareUrl
                 }).catch(err => console.log('Error sharing:', err));
