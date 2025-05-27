@@ -24,6 +24,7 @@ class PageController extends Controller
         $helper = new GeneralHelper();
         $excUpdated = $helper->getLastUpdated('exchange_rate_SAR_to_IDR');
         $kurs = $helper->getExchangeRate('SAR','IDR');
+        $usd = $helper->getExchangeRate('SAR','USD');
 
         $jumbotrons = Jumbotron::where('is_active', 1)->get();
         $values = Value::all();
@@ -39,7 +40,7 @@ class PageController extends Controller
         }
         $runnings = \App\Models\Running::orderBy('urutan', 'asc')->get();
 
-        return view('index', compact('excUpdated', 'kurs',
+        return view('index', compact('excUpdated', 'kurs', 'usd',
                                      'jumbotrons', 'values', 'type_packages', 'facilities', 'featured_reviews', 'reviews', 'news', 'socmeds', 'packages', 'runnings'
                                     ));
     }

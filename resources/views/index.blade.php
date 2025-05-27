@@ -151,6 +151,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 48 48"><defs><mask id="ipSTime0"><g fill="none" stroke-linejoin="round" stroke-width="4"><path fill="#fff" stroke="#fff" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z"/><path stroke="#000" stroke-linecap="round" d="M24.008 12v12.01l8.479 8.48"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSTime0)"/></svg>
                                 <div class="uea-date">Day, 01 Jan 2025</div>
                                 <div class="uea-time">18:22</div>
+                                <div class="">(UEA Time)</div>
                             </div>
                         </div>
                     </div>
@@ -160,12 +161,12 @@
                     <hr class="divider">
                     <div class="currency-box text-white py-5 pt-4 rounded-4" style="background: linear-gradient(238deg, #00265A -23.62%, #44628C 58.84%, #007473 118.45%); height:15.3em">
                         <div class="row">
-                            <div class="col-12 text-center">
+                            <div class="col-12 text-center mb-4">
                                 <div class="bg-radial-coklat-tua text-white px-3 fw-semibold d-inline-flex mx-auto text-dark p-2 rounded-3">
                                     {{\Carbon\Carbon::parse(now())->format('d M Y')}}
                                 </div>
                             </div>
-                            <div class="col-5">
+                            <div class="col-4">
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <img src="{{env('APP_URL')}}/src/images/saudi.png" alt="Flag Arab Saudi" class="d-block shadow-sm rounded-2"
                                         style="height:3em;object-fit:contain">
@@ -173,14 +174,15 @@
                                     <div class="fs-3">1 SAR</div>
                                 </div>
                             </div>
-                            <div class="col-2">
-                                <div class="h-100 d-flex align-items-center justify-content-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="m21.71 9.29l-4-4a1 1 0 0 0-1.42 1.42L18.59 9H7a1 1 0 0 0 0 2h14a1 1 0 0 0 .92-.62a1 1 0 0 0-.21-1.09M17 13H3a1 1 0 0 0-.92.62a1 1 0 0 0 .21 1.09l4 4a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42L5.41 15H17a1 1 0 0 0 0-2" />
-                                    </svg>
+                            <div class="col-4">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="{{env('APP_URL')}}/src/images/america.png" alt="" class="d-block shadow-sm rounded-2"
+                                        style="height:3em;object-fit:contain">
+                                    <div class="fs-5 tanur-coklat fw-bold">USD</div>
+                                    <div class="fs-4">{{$usd}}</div>
                                 </div>
                             </div>
-                            <div class="col-5">
+                            <div class="col-4">
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <img src="{{env('APP_URL')}}/src/images/indonesia.svg" alt="" class="d-block shadow-sm rounded-2"
                                         style="height:3em;object-fit:contain">
