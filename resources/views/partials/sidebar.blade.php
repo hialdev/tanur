@@ -176,7 +176,7 @@
                             <span class="d-flex">
                                 <i class="ti ti-building-store"></i>
                             </span>
-                            <span class="hide-menu">Toko</span>
+                            <span class="hide-menu">Cabang</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item">
@@ -184,7 +184,7 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Semua Toko</span>
+                                    <span class="hide-menu">Semua Cabang</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
@@ -192,7 +192,7 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Tambah Toko</span>
+                                    <span class="hide-menu">Tambah Cabang</span>
                                 </a>
                             </li>
                         </ul>
@@ -224,7 +224,7 @@
                             </li>
                         </ul>
                     </li>
-
+{{-- 
                     <li class="sidebar-item {{ Route::is('partner.*') ? 'selected' : '' }}">
                         <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                             <span class="d-flex">
@@ -304,7 +304,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                     <li class="sidebar-item {{ Route::is('logistic.*') ? 'selected' : '' }}">
                         <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
@@ -420,7 +420,7 @@
                         </ul>
                     </li>
                     
-                    <li class="nav-small-cap mt-0">
+                    {{-- <li class="nav-small-cap mt-0">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Penjualan</span>
                     </li>
@@ -501,7 +501,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-small-cap mt-0">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
@@ -515,7 +515,7 @@
                             <span class="hide-menu">Pengangkutan</span>
                         </a>
                     </li>
-
+{{-- 
                     <li class="nav-small-cap mt-0">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Invoice / Penagihan</span>
@@ -546,7 +546,7 @@
                             </span>
                             <span class="hide-menu">Invoice Pengangkutan</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     
                 @endif

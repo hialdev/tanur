@@ -171,7 +171,7 @@
             <div class="row">
               <div class="col-12 d-flex align-items-center gap-3 mb-3 ">
                 <span class="text-primary fs-6">#</span>
-                <h3 class="fs-5 mb-0"> Statistik Stock di Setiap Toko</h3>
+                <h3 class="fs-5 mb-0"> Statistik Stock di Setiap Cabang</h3>
               </div>
               @foreach($stores as $store)
               <div class="col-md-3 mb-4">

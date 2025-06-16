@@ -7,11 +7,11 @@
         <div class="card-body px-4 py-3">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h4 class="fw-semibold mb-8">Edit Toko : {{$store->name}}</h4>
+                    <h4 class="fw-semibold mb-8">Edit Cabang : {{$store->name}}</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a class="text-muted text-decoration-none" href="{{ route('store.index') }}">Toko</a>
+                                <a class="text-muted text-decoration-none" href="{{ route('store.index') }}">Cabang</a>
                             </li>
                             <li class="breadcrumb-item" aria-current="page">Edit</li>
                         </ol>
@@ -46,7 +46,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="px-4 py-3 border-bottom">
-                    <h5 class="card-title fw-semibold mb-0">Edit Toko</h5>
+                    <h5 class="card-title fw-semibold mb-0">Edit Cabang</h5>
                 </div>
                 <div class="card-body p-4">
                     @if ($errors->any())
@@ -61,7 +61,7 @@
                     <form action="{{ route('store.update', $store->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4">
-                            <label class="form-label fw-semibold">Image Toko</label>
+                            <label class="form-label fw-semibold">Image Cabang</label>
                             <div class="input-group">
                                 <span class="input-group-text px-6" id="basic-addon1"><i
                                         class="ti ti-photo fs-6"></i></span>
@@ -79,7 +79,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1"><i
                                         class="ti ti-text-caption fs-6"></i></span>
                                 <input type="text" name="name" value="{{ old('name', $store->name) }}"
-                                    class="form-control ps-2" placeholder="Name Toko">
+                                    class="form-control ps-2" placeholder="Name Cabang">
                             </div>
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -141,7 +141,7 @@
                                 <span class="input-group-text px-6" id="basic-addon1"><i
                                         class="ti ti-align-justified fs-6"></i></span>
                                 <textarea class="form-control ps-2" name="description" id="description" cols="20" rows="5"
-                                    placeholder="Description about this Toko">{{ old('description', $store->description) }}</textarea>
+                                    placeholder="Description about this Cabang">{{ old('description', $store->description) }}</textarea>
                             </div>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
@@ -152,7 +152,7 @@
                         <div class="p-4 bg-primary-subtle rounded-4 mb-3">
                             <div class="row">
                                 <div class="col-12">
-                                    <h5>Alamat Utama Toko</h5>
+                                    <h5>Alamat Utama Cabang</h5>
                                     <hr style="border-color: #cecece">
                                 </div>
                                 <div class="col-md-6">
@@ -197,7 +197,7 @@
                                     <span class="input-group-text px-6" id="basic-addon1"><i
                                             class="ti ti-map-2 fs-6"></i></span>
                                     <textarea class="form-control bg-white ps-2" name="address" id="address" cols="20" rows="5"
-                                        placeholder="Alamat utama Toko">{{ old('address', $store->address) }}</textarea>
+                                        placeholder="Alamat utama Cabang">{{ old('address', $store->address) }}</textarea>
                                 </div>
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -207,7 +207,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">
-                            Perbarui Toko
+                            Perbarui Cabang
                         </button>
                     </form>
                 </div>

@@ -6,13 +6,13 @@
         <div class="card-body px-4 py-3">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h4 class="fw-semibold mb-8">Toko</h4>
+                    <h4 class="fw-semibold mb-8">Cabang</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a class="text-muted text-decoration-none" href="{{ route('home') }}">Dashboard</a>
                             </li>
-                            <li class="breadcrumb-item" aria-current="page">Semua Toko</li>
+                            <li class="breadcrumb-item" aria-current="page">Semua Cabang</li>
                         </ol>
                     </nav>
                 </div>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="mb-3 d-flex align-items-center gap-2 justify-content-between">
-        <h1>Toko</h1>
+        <h1>Cabang</h1>
         <div style="aspect-ratio:1/1; width:3em; height:3em"
             class="bg-primary text-white d-flex align-items-center justify-content-center rounded-5 me-auto">
             {{ count($stores) }}</div>
@@ -74,7 +74,7 @@
                     <thead class="text-dark fs-4">
                         <tr>
                             <th>
-                                <h6 class="fs-3 fw-semibold mb-0">Toko</h6>
+                                <h6 class="fs-3 fw-semibold mb-0">Cabang</h6>
                             </th>
                             <th>
                                 <h6 class="fs-3 fw-semibold mb-0">Kontak</h6>
@@ -153,14 +153,14 @@
                                             <div class="modal-content p-3 modal-filled bg-danger">
                                                 <div class="modal-header modal-colored-header text-white">
                                                     <h4 class="modal-title text-white" id="danger-header-modalLabel">
-                                                        Yakin ingin menghapus Toko ?
+                                                        Yakin ingin menghapus Cabang ?
                                                     </h4>
                                                     <button type="button" class="btn-close btn-close-white"
                                                         data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body" style="width: fit-content; white-space:normal">
-                                                    <h5 class="mt-0 text-white">Toko {{$store->title}} akan dihapus</h5>
-                                                    <p class="text-white">Segala data yang berkaitan dengan Toko tersebut juga akan dihapus secara permanen.</p>
+                                                    <h5 class="mt-0 text-white">Cabang {{$store->title}} akan dihapus</h5>
+                                                    <p class="text-white">Segala data yang berkaitan dengan Cabang tersebut juga akan dihapus secara permanen.</p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">
