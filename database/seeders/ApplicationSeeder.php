@@ -18,22 +18,22 @@ class ApplicationSeeder extends Seeder
             [
                 'code' => 'SSO',
                 'name' => 'sso',
-                'url' => 'http://sso.sajjad.test',
+                'url' => 'http://sso.tanur.test',
             ],
             [
                 'code' => 'ACC',
                 'name' => 'account',
-                'url' => 'http://acc.sajjad.test',
+                'url' => 'http://acc.tanur.test',
             ],
             [
-                'code' => 'OSN',
-                'name' => 'Bismillah',
-                'url' => 'http://osn.sajjad.test',
+                'code' => 'STOCK',
+                'name' => 'Stock',
+                'url' => 'http://stock.tanur.test',
             ],
             [
                 'code' => 'ACCOUNTING',
                 'name' => 'Accounting',
-                'url' => 'http://calc.sajjad.test',
+                'url' => 'http://calc.tanur.test',
             ],
         ];
 

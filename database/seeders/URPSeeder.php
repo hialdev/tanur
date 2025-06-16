@@ -23,6 +23,7 @@ class URPSeeder extends Seeder
             'admin',
             'accounting', // Ditambahkan karena digunakan untuk accounting
             'employee', // Ditambahkan karena digunakan untuk Karyawan
+            'stocker', // Ditambahkan karena digunakan untuk Karyawan
         ];
 
         // 2. Buat Permission
@@ -31,6 +32,7 @@ class URPSeeder extends Seeder
             'account',
             'sso',
             'accounting',
+            'stock', // Ditambahkan karena digunakan untuk Karyawan
         ];
 
         // Buat Permission jika belum ada
@@ -45,13 +47,13 @@ class URPSeeder extends Seeder
 
         // 3. Assign permission ke role developer
         $role = Role::where('name', 'developer')->first();
-        $role->syncPermissions(['bismillah', 'account', 'sso', 'accounting']);
+        $role->syncPermissions(['stock', 'account', 'sso', 'accounting']);
         $role = Role::where('name', 'admin')->first();
-        $role->syncPermissions(['bismillah', 'account', 'sso']);
+        $role->syncPermissions(['stock', 'account', 'sso']);
         $role = Role::where('name', 'accounting')->first();
-        $role->syncPermissions(['bismillah', 'account', 'accounting']);
+        $role->syncPermissions(['stock', 'account', 'accounting']);
         $role = Role::where('name', 'employee')->first();
-        $role->syncPermissions(['bismillah', 'account']);
+        $role->syncPermissions(['stock', 'account']);
 
         // 4. Buat User Developer dan assign role + permission
         $developer = User::firstOrCreate([
