@@ -70,6 +70,12 @@ class ProductController extends Controller
         return view('products.edit', compact('product', 'product_types', 'units'));
     }
 
+    public function stock($id){
+        $product = Product::find($id);
+        // dd($product->warehouses());
+        return view('products.stock', compact('product'));
+    }
+
     public function update($id, Request $request){
         $request->merge(['price_per_unit' => parseRupiah($request->get('price_per_unit'))]);
         $request->validate([

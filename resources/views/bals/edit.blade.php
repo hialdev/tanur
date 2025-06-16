@@ -7,7 +7,7 @@
         <div class="card-body px-4 py-3">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h4 class="fw-semibold mb-8">Edit Produk</h4>
+                    <h4 class="fw-semibold mb-8">Edit Bal : {{$bal->name}} ({{$bal->code}})</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
@@ -46,7 +46,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="px-4 py-3 border-bottom">
-                    <h5 class="card-title fw-semibold mb-0">Edit Produk</h5>
+                    <h5 class="card-title fw-semibold mb-0">Edit Bal : {{$bal->name}} ({{$bal->code}})</h5>
                 </div>
                 <div class="card-body p-4">
                     @if ($errors->any())
@@ -61,11 +61,11 @@
                     <form action="{{ route('bal.update', $bal->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4">
-                            <label class="form-label fw-semibold">Image Produk</label>
+                            <label class="form-label fw-semibold">Image Bal</label>
                             <div class="input-group">
                                 <span class="input-group-text px-6" id="basic-addon1"><i
                                         class="ti ti-photo fs-6"></i></span>
-                                <input type="file" name="image" class="form-control ps-2">
+                                <input type="file" name="image" class="form-control ps-2" accept="image/*">
                             </div>
                             @error('image')
                                 <span class="invalid-feedback" role="alert">
@@ -120,11 +120,11 @@
 
                             <div class="mb-3">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" name="is_for_purchase" type="checkbox" value="1" id="is_for_purchase" {{ old('is_for_purchase',request()->filled('purchase_order') ?? $bal->purchase_order_id) ? 'checked' : ''}} />
+                                    <input class="form-check-input" name="is_for_purchase" type="checkbox" value="1" id="is_for_purchase" {{ old('is_for_purchase', $bal->purchase_order_id ?? request()->filled('purchase_order')) ? 'checked' : ''}} />
                                     <label class="form-check-label" for="is_for_purchase">Bal ini dari Pembelian Principal</label>
                                 </div>
                             </div>
-                            <div id="purchase" class="d-none">
+                            <div id="purchase" class="{{$bal->purchase_order_id ? '' : 'd-none'}}">
                                 <label for="purchase_order_id" class="form-label">Pembelian Principal / Purchase Order</label>
                                 <div class="input-group mb-2">
                                     <span class="input-group-text px-6" id="basic-addon1"><i
@@ -134,7 +134,7 @@
                                             <option value="">-- Pilih Pembelian --</option>
                                             @foreach ($purchase_orders as $purchase_order)
                                                 <option value="{{$purchase_order->id}}" {{ $purchase_order->id == old('purchase_order_id', $bal->purchase_order_id) ? 'selected' : '' }}>
-                                                    {{ $purchase_order->name }}
+                                                    {{ $purchase_order->code . ' - ' . \Carbon\Carbon::parse($purchase_order->date)->format('d M Y') }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -144,6 +144,43 @@
                                     Tidak menemukan Pembelian ? 
                                     <a href="" class="btn btn-sm text-primary bg-primary-subtle"
                                         >Tambah Pembelian</a>
+                                </div>
+                            </div>
+
+                            <!-- Container Produk -->
+                            <div class="p-4 border-2 border-dashed rounded-3 mt-3">
+                                <h6>Bal ini Berisi Produk</h6>
+                                <div id="product-container">
+                                    @foreach ($bal->products as $balProduct)
+                                        <div class="d-flex flex-wrap mb-1 flex-1 w-100 align-items-center">
+                                            <input type="hidden" name="product_id[]" value="{{$balProduct->product_id}}">
+                                            <img src="{{ $balProduct->product->image ? '/storage/' . $balProduct->product->image : 'https://placehold.co/300?text=' . $balProduct->product->name }}"
+                                                class="rounded-2" alt="product Image {{$balProduct->product->name}}" style="width: 4em" />
+                                            <div class="ms-3">
+                                                <h6 class="fw-semibold mb-1" style="white-space: normal !important">{{$balProduct->product->name}}</h6>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div><i class="ti ti-arrow-up"></i> {{$balProduct->product->height}} cm</div>
+                                                    <div><i class="ti ti-arrow-right"></i> {{$balProduct->product->width}} cm</div>
+                                                </div>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <div class="fs-2 mb-1">Qty. (available {{$balProduct->qty}})</div>
+                                                <input type="number" class="form-control bg-white" style="max-width:10em" name="qty[]" value="{{$balProduct->qty}}" max="{{$balProduct->qty}}" placeholder="{{$balProduct->qty}}">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                    {{-- Produk akan diisi secara dinamis --}}
+                                </div>
+                                <div class="d-flex flex-wrap gap-1">
+                                    <button type="button" id="add-product" class="btn btn-sm btn-secondary mt-2">
+                                        <i class="ti ti-plus"></i> Tambah Produk Manual
+                                    </button>
+                                    <button type="button" id="refresh-product" class="btn btn-sm btn-dark mt-2">
+                                        <i class="ti ti-refresh me-1"></i> Reset dari Pembelian
+                                    </button>
+                                    <button type="button" id="reset-product" class="btn btn-sm btn-warning mt-2">
+                                        <i class="ti ti-refresh me-1"></i> Reset ke Awal
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -172,6 +209,91 @@
                 let modal = $(this).closest('.modal'); // Cari modal terdekat
                 $(this).select2();
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            function fetchProducts(id) {
+                $.get(`/purchase-order/${id}/products`, function (data) {
+                    let html = '';
+
+                    data.forEach((prod) => {
+                        html += `
+                            <div class="d-flex flex-wrap gap-2 mb-1 flex-1 w-100 align-items-center">
+                                <input type="hidden" name="product_id[]" value="${prod.product_id}">
+                                <img src="${ prod.image }"
+                                    class="rounded-2" alt="product Image ${prod.name}" style="width: 4em" />
+                                <div class="">
+                                    <h6 class="fw-semibold mb-1" style="white-space: normal !important">${prod.name}</h6>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div><i class="ti ti-arrow-up"></i> ${prod.height} cm</div>
+                                        <div><i class="ti ti-arrow-right"></i> ${prod.width} cm</div>
+                                    </div>
+                                </div>
+                                <div class="ms-auto">
+                                    <div class="fs-2 mb-1">Qty. (available ${prod.qty})</div>
+                                    <input type="number" class="form-control bg-white" style="max-width:10em" name="qty[]" value="0" max="${prod.qty}" placeholder="${prod.qty}">
+                                </div>
+                            </div>`;
+                    });
+
+                    $('#product-container').html(html);
+                });
+            }
+            // Ketika purchase order diubah
+            $('#purchase_order').on('change', function () {
+                const id = $(this).val();
+                if (!id) return;
+
+                fetchProducts($id);
+            });
+
+            // Hapus baris produk
+            $(document).on('click', '.remove-row', function () {
+                $(this).closest('.product-row').remove();
+            });
+
+            const currentPurchaseId = @JSON($bal->purchase_order_id);
+            // Refresh 
+            $('#refresh-product').on('click', function () {
+                if (!currentPurchaseId) return;
+                fetchProducts(currentPurchaseId);
+            })
+
+            $('#reset-product').on('click', function () {
+                location.reload();
+            })
+            
+            // Tambah produk manual
+            let productCounter = 0;
+            $('#add-product').on('click', function () {
+                productCounter++; // Tambah counter setiap klik
+
+                let manual = `
+                    <div class="d-flex flex-wrap align-items-end gap-2 mb-2 product-row">
+                        <select name="product_id[]" id="select_product_${productCounter}" class="form-select" style="width:100%">
+                            <option value="">-- Pilih Produk --</option>
+                            @foreach ($products as $product)
+                                <option value="{{ $product->id }}">
+                                    {{ $product->name }} - Jual {{ formatRupiah($product->price_per_unit) }} / {{ $product->unit->code }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <div>
+                            <div class="fs-1 mb-1 text-dark">Sebanyak</div>
+                            <input type="number" class="form-control bg-white" name="qty[]" value="0" placeholder="Sebanyak" style="max-width:10em">
+                        </div>
+                        <button type="button" class="btn btn-sm btn-danger remove-row"><i class="ti ti-trash"></i></button>
+                    </div>`;
+                $('#product-container').append(manual);
+            
+                // Inisialisasi select2 setelah ditambahkan
+                $(`#select_product_${productCounter}`).select2({
+                    dropdownParent: $('#product-container') // opsional jika select2 di modal
+                });
+            });
+
         });
     </script>
     <script>

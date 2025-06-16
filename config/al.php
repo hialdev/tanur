@@ -25,8 +25,8 @@ return [
     ],
 
     'company' => [
-      'name' => 'PT Sajjad Zamzami',
-      'code' => 'SJZ',
+      'name' => 'PT Tanur Muthmainnah Tour',
+      'code' => 'TNR',
     ],
 
     'types' => [

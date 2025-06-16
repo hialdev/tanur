@@ -52,4 +52,33 @@ class Product extends Model
     public function unit(){
         return $this->belongsTo(Unit::class,'unit_id');
     }
+
+    public function type(){
+        return $this->belongsTo(ProductType::class, 'product_type_id');
+    }
+
+    public function getAnalyticLocation($locType, $locId){
+        if($this->type->type == 'meteran'){
+            return StockMeter::analyticProductInLocation($locType, $locId, $this->id);
+        }
+
+        return Stock::analyticProductInLocation($locType, $locId, $this->id);
+    }
+
+    public function getStockCountAttribute(){
+        if ($this->type->type == 'meteran'){
+            return StockMeter::where('product_id', $this->id)->where('is_onway', 0)->count();
+        }else{
+            return Stock::totalRemainingByProduct($this->id);
+        }
+    }
+
+    // public function getRemainingAndLocations() {
+    //     if ($this->type->type == 'meteran'){
+    //         return StockMeter::;
+    //     }else{
+    //         return Stock::totalRemainingByProduct($this->id);
+    //     }
+    // }
+    
 }

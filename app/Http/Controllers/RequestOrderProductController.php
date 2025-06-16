@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\RequestOrder;
 use App\Models\RequestOrderProduct;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ class RequestOrderProductController extends Controller
         $request->validate([
             'product_id.*' => 'required|string|exists:osano.products,id',
             'qty.*' => 'required|numeric|min:1',
+            'length.*' => 'nullable|numeric|min:1',
             'price_sale.*' => 'required|min:1',
             'total_price' => 'required|min:1',
             'tax' => 'required|min:1',
@@ -26,13 +28,19 @@ class RequestOrderProductController extends Controller
             if($reqorder->status != 0){
                 return redirect()->back()->withInput()->with('error', 'Gagal memperbarui Produk Permintaan Client, Error: Status tidak diizinkan untuk diperbarui');
             }
-            if($reqorder->products){
-                $reqorder->products()->delete();
+
+            foreach ($request->get('product_id') as $key => $productId){
+                $product = Product::find($productId);
+                if ($product->stock_count < $request->get('qty')[$key]) {
+                    return redirect()->back()->withInput()->with('error', 'Terdapat qty '.$request->get('qy')[$key].' yang melebih stock '.$product->stock_count);
+                }
             }
+
             foreach ($request->get('product_id') as $key => $product_id) {
                 RequestOrderProduct::create([
                     'request_order_id' => $request->get('request_order_id'),
                     'product_id' => $product_id,
+                    'length' => $request->get('length')[$key] ?? null,
                     'price_sale' => $request->get('price_sale')[$key],
                     'qty' => $request->get('qty')[$key],
                 ]);
